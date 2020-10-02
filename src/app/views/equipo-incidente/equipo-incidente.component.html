@@ -1,0 +1,50 @@
+  <div class="container py-3">
+    <div class="row">
+        <div class="mx-auto col-sm-9">
+                    <!-- form user info -->
+                    <div class="card">
+                        <div class="card-header">
+                            <h4 class="mb-0">Realizar mantenimiento</h4>
+                        </div>
+                        <div class="card-body">
+                           <form class="form" role="form" [formGroup]="formDetalles" >
+                                <div class="form-group row">
+                                    <label class="col-lg-3 col-form-label form-control-label">Fecha</label>
+                                    <div class="col-lg-9">
+                                         <input class="form-control"  formControlName="fechaLimite" type="text"  placeholder="date" value="12/05/2020" readonly="true">
+                                    </div>
+                                </div>
+                                <div class="form-group row">
+                                    <label class="col-lg-3 col-form-label form-control-label">Descripci&oacute;n</label>
+                                    <div class="col-lg-9">
+                                        <textarea    cols="47" rows="8" class="input1" aria-invalid="false" readonly="true" value="Pantalla azul">Pantalla azul, mensaje de problema del disco duro</textarea>
+                                    </div>
+                                </div>
+                                <div class="form-group row">
+                                    <label class="col-lg-3 col-form-label form-control-label">Laboratorio</label>
+                                    <div class="col-lg-9">
+                                        <input class="form-control" type="text" value="Laboratorio 6" readonly="true" >
+                                    </div>
+                                </div>
+                                <div class="form-group row">
+                                    <label class="col-lg-3 col-form-label form-control-label">Equipo</label>
+                                    <div class="col-lg-9">
+                                        <input class="form-control" type="text" value="PC-07" readonly="true">
+                                    </div>
+                                </div>
+                               
+                               
+                                <div class="form-group row">
+                                    <label class="col-lg-3 col-form-label form-control-label"></label>
+                                    <div class="col-lg-9">
+                                        <input type="reset" class="btn btn-secondary" value="Cancelar">
+                                        <input type="button" (click)="irMantenimiento()" class="btn btn-primary" value="Dar Soluci&oacute;n">
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                    <!-- /form user info -->
+        </div>
+    </div>
+</div>

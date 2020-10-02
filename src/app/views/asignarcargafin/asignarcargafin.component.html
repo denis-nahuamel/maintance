@@ -1,0 +1,68 @@
+<div class="container py-3">
+    <div class="row">
+        <div class="mx-auto col-sm-12">
+                    <!-- form user info -->
+                    <div class="card">
+                        <div class="card-header">
+                            <h4 class="mb-0">Equipos no asignados</h4>
+                        </div>
+                        <div class="card-body">
+                          <label style="background-color: #F0F0F0"><strong>Personal seleccionado:</strong> {{tecnico.title}}</label>
+                            <table class="table">
+                              <thead class="thead-dark">
+                                <tr>
+                                  <th scope="col">#</th>
+                                  <th scope="col">Laboratorio</th>
+                                  <th scope="col">Nombre</th>
+                                  <th scope="col">Seleccionar</th>
+                                </tr>
+                              </thead>
+                              <tbody>
+                                <tr *ngFor="let producto of Productos; let i = index;">
+                                  <th scope="row">{{producto.id}}</th>
+                                  <td>{{producto.title}}</td>
+                                  <td>PC-4</td>
+                                  <td> 
+                                           <input type="checkbox" class="btn btn-primary" [(ngModel)]="producto.checked" (change)="changeSelection()">
+                                          
+                                     
+                                  </td>
+                                </tr>
+                            <!--    <tr>
+                                  <th scope="row">2</th>
+                                  <td>Laboratorio 3 </td>
+                                  <td>PC-4</td>
+                                  <td> 
+                                    <div class="custom-control custom-checkbox">
+                                          <input type="checkbox" class="custom-control-input" id="defaultUnchecked2">
+                                          <label class="custom-control-label" for="defaultUnchecked2"></label>
+                                      </div>
+                                  </td>
+                                </tr>
+                                <tr>
+                                  <th scope="row">3</th>
+                                  <td>Laboratorio 6</td>
+                                  <td>PC-4</td>
+                                  <td>
+                                    <div class="custom-control custom-checkbox">
+                                          <input type="checkbox" class="custom-control-input" id="defaultUnchecked3">
+                                          <label class="custom-control-label" for="defaultUnchecked3"></label>
+                                      </div>
+                                  </td>
+                                </tr>-->
+                              </tbody>
+                            </table>
+                            <div class="form-group row">
+                                    <label class="col-lg-3 col-form-label form-control-label"></label>
+                                    <div class="col-lg-9">
+                                        <input type="reset" class="btn btn-secondary" value="Atr&aacute;s">
+                                        <input type="button" class="btn btn-primary" value="Asignar" (click)="asignarCarga(tecnico)">
+                                    </div>
+                                </div>
+                          
+                        </div>
+                    </div>
+                    <!-- /form user info -->
+        </div>
+    </div>
+</div>

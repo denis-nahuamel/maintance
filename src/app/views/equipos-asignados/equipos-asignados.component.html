@@ -1,0 +1,36 @@
+<div class="container py-3">
+    <div class="row">
+        <div class="mx-auto col-sm-12">
+                    <!-- form user info -->
+                    <div class="card">
+                        <div class="card-header">
+                            <h4 class="mb-0">Equipos asignados</h4>
+                        </div>
+                        <div class="card-body">
+                            <table class="table">
+                              <thead class="thead-dark">
+                                <tr>
+                                  <th scope="col">#</th>
+                                  <th scope="col">Laboratorio</th>
+                                  <th scope="col">Equipo</th>
+                                  <th scope="col">Ver</th>
+                                </tr>
+                              </thead>
+                              <tbody>
+                                <tr *ngFor="let equipo of Equipos; let i = index;">
+                                  <th scope="row">1</th>
+                                  <td>Laboratorio 6</td>
+                                  <td>PC-4</td>
+                                  <td><button type="button" class="btn btn-outline-success" (click)="equipoDetalles(equipo)">ver detalles</button></td>
+                                </tr>
+                                
+                              </tbody>
+                            </table>
+
+                          
+                        </div>
+                    </div>
+                    <!-- /form user info -->
+        </div>
+    </div>
+</div>

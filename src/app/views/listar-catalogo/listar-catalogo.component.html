@@ -1,0 +1,43 @@
+<div class="container py-3">
+    <div class="row">
+        <div class="mx-auto col-sm-12">
+                    <!-- form user info -->
+                    <div class="card">
+                        <div class="card-header">
+                            <h4 class="mb-0">Catalogo</h4>
+                             <button type="button" class="btn btn-success" style="float:right" (click)="agregarCatalogo()">Agregar Catalogo</button>
+                        </div>
+                        <div class="card-body">
+                            <table class="table">
+                              <thead class="thead-dark">
+                                <tr>
+                                  <th scope="col">Codigo</th>
+                                  <th scope="col">Categoria</th>
+                                  <th scope="col">Marca</th>
+                                  <th scope="col">Modelo</th>
+                                  <th scope="col">Descripci&oacute;n</th>
+                                   <th scope="col">Eliminar</th>
+                                   <th scope="col">Detalles</th>
+                                </tr>
+                              </thead>
+                              <tbody>
+                                <tr *ngFor="let catalogo of Catalogos; let i = index;">
+                                  <th scope="row">{{catalogo.codCatalogo}}</th>
+                                  <td>{{catalogo.categoria}}</td>
+                                  <td>{{catalogo.marca}}</td>
+                                  <td>{{catalogo.modelo}}</td>
+                                  <td>{{catalogo.descripcion}}</td>
+                                  <td><button type="button" class="btn btn-warning" (click)="borrarCatalogo(catalogo)" >Eliminar</button></td>
+                                  <td><button type="button" class="btn btn-outline-success" (click)="catalogoDetalles(catalogo)">ver detalles</button></td>
+                                </tr>
+                                
+                              </tbody>
+                            </table>
+
+                          
+                        </div>
+                    </div>
+                    <!-- /form user info -->
+        </div>
+    </div>
+</div>

@@ -1,0 +1,64 @@
+[debug] [2020-09-17T14:26:31.754Z] ----------------------------------------------------------------------
+[debug] [2020-09-17T14:26:31.761Z] Command:       C:\Program Files\nodejs\node.exe C:\Users\DENIS\AppData\Roaming\npm\node_modules\firebase-tools\lib\bin\firebase.js deploy
+[debug] [2020-09-17T14:26:31.762Z] CLI Version:   8.10.0
+[debug] [2020-09-17T14:26:31.762Z] Platform:      win32
+[debug] [2020-09-17T14:26:31.762Z] Node Version:  v12.13.1
+[debug] [2020-09-17T14:26:31.931Z] Time:          Thu Sep 17 2020 09:26:31 GMT-0500 (GMT-05:00)
+[debug] [2020-09-17T14:26:31.932Z] ----------------------------------------------------------------------
+[debug] [2020-09-17T14:26:31.933Z] 
+[debug] [2020-09-17T14:26:32.114Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2020-09-17T14:26:32.115Z] > authorizing via signed-in user
+[debug] [2020-09-17T14:26:32.116Z] [iam] checking project mantenimiento-info-ca008 for permissions ["firebase.projects.get","firebasehosting.sites.update"]
+[debug] [2020-09-17T14:26:32.121Z] > refreshing access token with scopes: ["email","https://www.googleapis.com/auth/cloud-platform","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","openid"]
+[debug] [2020-09-17T14:26:32.122Z] >>> HTTP REQUEST POST https://www.googleapis.com/oauth2/v3/token  
+ <request body omitted>
+[debug] [2020-09-17T14:26:32.633Z] <<< HTTP RESPONSE 200 {"content-type":"application/json; charset=utf-8","vary":"X-Origin, Referer, Origin,Accept-Encoding","date":"Thu, 17 Sep 2020 14:26:31 GMT","server":"scaffolding on HTTPServer2","cache-control":"private","x-xss-protection":"0","x-frame-options":"SAMEORIGIN","x-content-type-options":"nosniff","alt-svc":"h3-29=\":443\"; ma=2592000,h3-27=\":443\"; ma=2592000,h3-T051=\":443\"; ma=2592000,h3-T050=\":443\"; ma=2592000,h3-Q050=\":443\"; ma=2592000,h3-Q046=\":443\"; ma=2592000,h3-Q043=\":443\"; ma=2592000,quic=\":443\"; ma=2592000; v=\"46,43\"","accept-ranges":"none","transfer-encoding":"chunked"}
+[debug] [2020-09-17T14:26:32.701Z] >>> HTTP REQUEST POST https://cloudresourcemanager.googleapis.com/v1/projects/mantenimiento-info-ca008:testIamPermissions  
+ {"permissions":["firebase.projects.get","firebasehosting.sites.update"]}
+[debug] [2020-09-17T14:26:34.149Z] <<< HTTP RESPONSE 200 {"content-type":"application/json; charset=UTF-8","vary":"X-Origin, Referer, Origin,Accept-Encoding","date":"Thu, 17 Sep 2020 14:26:32 GMT","server":"ESF","cache-control":"private","x-xss-protection":"0","x-frame-options":"SAMEORIGIN","x-content-type-options":"nosniff","server-timing":"gfet4t7; dur=862","alt-svc":"h3-29=\":443\"; ma=2592000,h3-27=\":443\"; ma=2592000,h3-T051=\":443\"; ma=2592000,h3-T050=\":443\"; ma=2592000,h3-Q050=\":443\"; ma=2592000,h3-Q046=\":443\"; ma=2592000,h3-Q043=\":443\"; ma=2592000,quic=\":443\"; ma=2592000; v=\"46,43\"","accept-ranges":"none","transfer-encoding":"chunked"}
+[debug] [2020-09-17T14:26:34.150Z] >>> HTTP REQUEST GET https://firebase.googleapis.com/v1beta1/projects/mantenimiento-info-ca008  
+ 
+[debug] [2020-09-17T14:26:34.976Z] <<< HTTP RESPONSE 200 {"content-type":"application/json; charset=UTF-8","vary":"X-Origin, Referer, Origin,Accept-Encoding","date":"Thu, 17 Sep 2020 14:26:33 GMT","server":"ESF","cache-control":"private","x-xss-protection":"0","x-frame-options":"SAMEORIGIN","x-content-type-options":"nosniff","alt-svc":"h3-29=\":443\"; ma=2592000,h3-27=\":443\"; ma=2592000,h3-T051=\":443\"; ma=2592000,h3-T050=\":443\"; ma=2592000,h3-Q050=\":443\"; ma=2592000,h3-Q046=\":443\"; ma=2592000,h3-Q043=\":443\"; ma=2592000,quic=\":443\"; ma=2592000; v=\"46,43\"","accept-ranges":"none","transfer-encoding":"chunked"}
+[info] 
+[info] === Deploying to 'mantenimiento-info-ca008'...
+[info] 
+[info] i  deploying hosting 
+[debug] [2020-09-17T14:26:34.988Z] >>> HTTP REQUEST POST https://firebasehosting.googleapis.com/v1beta1/sites/mantenimiento-info-ca008/versions  
+ {"config":{},"labels":{"deployment-tool":"cli-firebase"}}
+[debug] [2020-09-17T14:26:37.216Z] <<< HTTP RESPONSE 200 {"content-type":"application/json; charset=UTF-8","vary":"X-Origin, Referer, Origin,Accept-Encoding","date":"Thu, 17 Sep 2020 14:26:35 GMT","server":"ESF","cache-control":"private","x-xss-protection":"0","x-frame-options":"SAMEORIGIN","x-content-type-options":"nosniff","alt-svc":"h3-29=\":443\"; ma=2592000,h3-27=\":443\"; ma=2592000,h3-T051=\":443\"; ma=2592000,h3-T050=\":443\"; ma=2592000,h3-Q050=\":443\"; ma=2592000,h3-Q046=\":443\"; ma=2592000,h3-Q043=\":443\"; ma=2592000,quic=\":443\"; ma=2592000; v=\"46,43\"","accept-ranges":"none","transfer-encoding":"chunked"}
+[info] i  hosting[mantenimiento-info-ca008]: beginning deploy... 
+[info] i  hosting[mantenimiento-info-ca008]: found 558 files in dist 
+[debug] [2020-09-17T14:26:38.238Z] [hosting] hash cache [ZGlzdA] stored for 558 files
+[debug] [2020-09-17T14:26:38.239Z] [hosting][hash queue][FINAL] {"max":371,"min":18,"avg":59.07347670250896,"active":0,"complete":558,"success":558,"errored":0,"retried":0,"total":558,"elapsed":816}
+[debug] [2020-09-17T14:26:38.239Z] >>> HTTP REQUEST POST https://firebasehosting.googleapis.com/v1beta1/sites/mantenimiento-info-ca008/versions/b2dca761c3950b85:populateFiles  
+ <request body omitted>
+[debug] [2020-09-17T14:26:40.652Z] <<< HTTP RESPONSE 200 {"content-type":"application/json; charset=UTF-8","vary":"X-Origin, Referer, Origin,Accept-Encoding","date":"Thu, 17 Sep 2020 14:26:39 GMT","server":"ESF","cache-control":"private","x-xss-protection":"0","x-frame-options":"SAMEORIGIN","x-content-type-options":"nosniff","alt-svc":"h3-29=\":443\"; ma=2592000,h3-27=\":443\"; ma=2592000,h3-T051=\":443\"; ma=2592000,h3-T050=\":443\"; ma=2592000,h3-Q050=\":443\"; ma=2592000,h3-Q046=\":443\"; ma=2592000,h3-Q043=\":443\"; ma=2592000,quic=\":443\"; ma=2592000; v=\"46,43\"","accept-ranges":"none","transfer-encoding":"chunked"}
+[debug] [2020-09-17T14:26:40.658Z] [hosting][populate queue][FINAL] {"max":2418,"min":2418,"avg":2418,"active":0,"complete":1,"success":1,"errored":0,"retried":0,"total":1,"elapsed":2423}
+[debug] [2020-09-17T14:26:40.658Z] [hosting] uploads queued: 5
+[debug] [2020-09-17T14:26:44.759Z] [hosting][upload queue][FINAL] {"max":4106,"min":2383,"avg":2979.4,"active":0,"complete":5,"success":5,"errored":0,"retried":0,"total":5,"elapsed":4106}
+[info] +  hosting[mantenimiento-info-ca008]: file upload complete 
+[debug] [2020-09-17T14:26:44.760Z] [hosting] deploy completed after 7540ms
+[debug] [2020-09-17T14:26:45.025Z] [
+  {
+    "config": {
+      "public": "dist",
+      "ignore": [
+        "firebase.json",
+        "**/.*",
+        "**/node_modules/**"
+      ],
+      "site": "mantenimiento-info-ca008"
+    },
+    "site": "mantenimiento-info-ca008",
+    "version": "sites/mantenimiento-info-ca008/versions/b2dca761c3950b85"
+  }
+]
+[info] i  hosting[mantenimiento-info-ca008]: finalizing version... 
+[debug] [2020-09-17T14:26:45.031Z] >>> HTTP REQUEST PATCH https://firebasehosting.googleapis.com/v1beta1/sites/mantenimiento-info-ca008/versions/b2dca761c3950b85?updateMask=status  
+ {"status":"FINALIZED"}
+[debug] [2020-09-17T14:26:45.699Z] <<< HTTP RESPONSE 200 {"content-type":"application/json; charset=UTF-8","vary":"X-Origin, Referer, Origin,Accept-Encoding","date":"Thu, 17 Sep 2020 14:26:44 GMT","server":"ESF","cache-control":"private","x-xss-protection":"0","x-frame-options":"SAMEORIGIN","x-content-type-options":"nosniff","alt-svc":"h3-29=\":443\"; ma=2592000,h3-27=\":443\"; ma=2592000,h3-T051=\":443\"; ma=2592000,h3-T050=\":443\"; ma=2592000,h3-Q050=\":443\"; ma=2592000,h3-Q046=\":443\"; ma=2592000,h3-Q043=\":443\"; ma=2592000,quic=\":443\"; ma=2592000; v=\"46,43\"","accept-ranges":"none","transfer-encoding":"chunked"}
+[debug] [2020-09-17T14:26:45.700Z] [hosting] finalized version for mantenimiento-info-ca008: {"name":"sites/mantenimiento-info-ca008/versions/b2dca761c3950b85","status":"FINALIZED","config":{},"labels":{"deployment-tool":"cli-firebase"},"createTime":"2020-09-17T14:26:34.985142Z","createUser":{"email":"094303@unsaac.edu.pe"},"finalizeTime":"2020-09-17T14:26:44.187470Z","finalizeUser":{"email":"094303@unsaac.edu.pe"}}
+[info] +  hosting[mantenimiento-info-ca008]: version finalized 
+[info] i  hosting[mantenimiento-info-ca008]: releasing new version... 
+[debug] [2020-09-17T14:26:45.709Z] >>> HTTP REQUEST POST https://firebasehosting.googleapis.com/v1beta1/sites/mantenimiento-info-ca008/releases?version_name=sites/mantenimiento-info-ca008/versions/b2dca761c3950b85  
+ {"message":null}

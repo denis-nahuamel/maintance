@@ -1,0 +1,187 @@
+import { NgModule } from '@angular/core';
+import { Routes, RouterModule } from '@angular/router';
+
+// Import Containers
+import { DefaultLayoutComponent } from './containers';
+
+import { P404Component } from './views/error/404.component';
+import { P500Component } from './views/error/500.component';
+import { LoginComponent } from './views/login/login.component';
+import { RegisterComponent } from './views/register/register.component';
+import { AsignarcargaComponent } from './views/asignarcarga/asignarcarga.component';
+import { AsignarcargafinComponent } from './views/asignarcargafin/asignarcargafin.component';
+import { EquiposAsignadosComponent } from './views/equipos-asignados/equipos-asignados.component';
+import { EquipoIncidenteComponent } from './views/equipo-incidente/equipo-incidente.component';
+import { RepuestosComponent } from './views/repuestos/repuestos.component';
+import { EquipoMantenimientoComponent } from './views/equipo-mantenimiento/equipo-mantenimiento.component';
+import { RegistrarIncidenciaComponent } from './views/registrar-incidencia/registrar-incidencia.component';
+import { ListarDocenteComponent } from './views/listar-docente/listar-docente.component';
+import { DocenteListarComponent } from './views/docente-listar/docente-listar.component';
+import { AgregarDocenteComponent } from './views/agregar-docente/agregar-docente.component';
+
+import { DocenteAgregarComponent } from './views/docente-agregar/docente-agregar.component';
+import { AgregarCatalogoComponent } from './views/agregar-catalogo/agregar-catalogo.component';
+import { ListarCatalogoComponent } from './views/listar-catalogo/listar-catalogo.component';
+import { ListarEquiposComponent } from './views/listar-equipos/listar-equipos.component';
+
+import { ListarComponentesComponent } from './views/listar-componentes/listar-componentes.component';
+import { AgregarComponenteComponent } from './views/agregar-componente/agregar-componente.component';
+
+import { AgregarEquipoComponent } from './views/agregar-equipo/agregar-equipo.component';
+import { SeleccionarEquipoComponent } from './views/seleccionar-equipo/seleccionar-equipo.component';
+
+export const routes: Routes = [
+  {
+    path: '',
+    redirectTo: 'login',
+    pathMatch: 'full',
+  },
+  {
+    path: '404',
+    component: P404Component,
+    data: {
+      title: 'Page 404'
+    }
+  },
+  {
+    path: '500',
+    component: P500Component,
+    data: {
+      title: 'Page 500'
+    }
+  },
+  {
+    path: 'login',
+    component: LoginComponent,
+    data: {
+      title: 'Login Page'
+    }
+  },
+  {
+    path: 'register',
+    component: RegisterComponent,
+    data: {
+      title: 'Register Page'
+    }
+  },
+  
+   {
+    path: 'docentes', children: [
+          { path: '', component: ListarDocenteComponent, /*canActivate: [AuthGuard],data: {role: 'estudiante'}*/  },
+          { path: 'agregar-docente', 
+            children: [
+                      { path: '', component: AgregarDocenteComponent, /*canActivate: [AuthGuard],data: {role: 'estudiante'}*/  },
+                      { path: ':idDocente', component: AgregarDocenteComponent}
+                    
+                  ]
+          },
+        ]
+    
+  },
+  {
+    path: '',
+    component: DefaultLayoutComponent,
+    data: {
+      title: 'Home'
+    },
+    children: [
+      { path: 'asignar-carga', children: [
+          { path: '', component: AsignarcargaComponent, /*canActivate: [AuthGuard],data: {role: 'estudiante'}*/  },
+          { path: ':id', component: AsignarcargafinComponent},
+        ]
+        
+      },
+      {
+        path: 'registrar-incidencia',
+        component: RegistrarIncidenciaComponent,
+        data: {
+          title: 'Registrar Incidencia'
+        }
+      }
+      ,
+      {
+        path: 'equipos-asignados', children: [
+          { path: '', component: EquiposAsignadosComponent, /*canActivate: [AuthGuard],data: {role: 'estudiante'}*/  },
+          { path: ':id', 
+            children: [
+                      { path: '', component: EquipoIncidenteComponent, /*canActivate: [AuthGuard],data: {role: 'estudiante'}*/  },
+                      { path: 'mantenimiento', component: EquipoMantenimientoComponent},
+                      { path: 'repuestos', component: RepuestosComponent},
+                  ]
+          },
+        ]
+      }
+      ,
+      {
+        path: 'catalogo', children: [
+          { path: '', component: ListarCatalogoComponent, /*canActivate: [AuthGuard],data: {role: 'estudiante'}*/  },
+          { path: 'editar/:id', component: AgregarCatalogoComponent}
+          ,{ path: 'insertar/:id', component: AgregarCatalogoComponent},
+
+          { path: 'insertar', component: AgregarCatalogoComponent}
+        ]
+      }
+      ,
+      {
+        path: 'componente', children: [
+          { path: '', component: ListarComponentesComponent, /*canActivate: [AuthGuard],data: {role: 'estudiante'}*/  },
+          { path: 'editar/:id', component: AgregarComponenteComponent}
+          ,{ path: 'insertar/:id', component: AgregarComponenteComponent},
+
+          { path: 'insertar', component: AgregarComponenteComponent}
+        ]
+      }
+      ,
+      {
+        path: 'equipo', children: [
+          { path: '', component: ListarEquiposComponent, /*canActivate: [AuthGuard],data: {role: 'estudiante'}*/  },
+          { path: 'editar/:id', component: AgregarEquipoComponent}
+          ,{ path: 'insertar/:id', component: AgregarEquipoComponent},
+
+          { path: 'insertar', component: AgregarEquipoComponent},
+          { path: 'seleccionar-catalogo', component: SeleccionarEquipoComponent}
+        ]
+      }
+      ,
+      {
+        path: 'buttons',
+        loadChildren: () => import('./views/buttons/buttons.module').then(m => m.ButtonsModule)
+      },
+      {
+        path: 'charts',
+        loadChildren: () => import('./views/chartjs/chartjs.module').then(m => m.ChartJSModule)
+      },
+      {
+        path: 'dashboard',
+        loadChildren: () => import('./views/dashboard/dashboard.module').then(m => m.DashboardModule)
+      },
+      {
+        path: 'icons',
+        loadChildren: () => import('./views/icons/icons.module').then(m => m.IconsModule)
+      },
+      {
+        path: 'notifications',
+        loadChildren: () => import('./views/notifications/notifications.module').then(m => m.NotificationsModule)
+      },
+      {
+        path: 'theme',
+        loadChildren: () => import('./views/theme/theme.module').then(m => m.ThemeModule)
+      },
+      {
+        path: 'widgets',
+        loadChildren: () => import('./views/widgets/widgets.module').then(m => m.WidgetsModule)
+      },
+      {
+        path: 'componentes',
+        loadChildren: () => import('./views/listar-componentes/listar-componentes.module').then(m => m.ListarComponentesModule)
+      }
+    ]
+  },
+  { path: '**', component: P404Component }
+];
+
+@NgModule({
+  imports: [ RouterModule.forRoot(routes) ],
+  exports: [ RouterModule ]
+})
+export class AppRoutingModule {}
