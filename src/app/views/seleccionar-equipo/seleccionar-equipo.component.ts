@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { CatalogoInterface } from '../../models/catalogo';
 import { CatalogoService } from "../../services/catalogo.service";
+import { ComponenteService } from "../../services/componente.service";
 import { FormBuilder, FormGroup, FormArray, FormControl, ValidatorFn } from '@angular/forms';
 import { of } from 'rxjs';
 import { ActivatedRoute, Router } from '@angular/router';
@@ -16,14 +17,16 @@ term: string;
 selectedItemsList = [];
   checkedIDs = [];
    message:string;
+   public idRuta=null;//tiene el id del componente que lo esta llamando
   public idEquipo=null;
-    constructor(private activatedRoute: ActivatedRoute,private catalogoService: CatalogoService,private formBuilder: FormBuilder, 
-  			private router: Router) {
+    constructor(private activatedRoute: ActivatedRoute
+      ,private catalogoService: CatalogoService,private formBuilder: FormBuilder, 
+  			private router: Router,private componenteService: ComponenteService) {
   
-  }
+    }
 
   ngOnInit(): void {
-  
+    this.idRuta = this.activatedRoute.snapshot.paramMap.get('id');//id del componente
     this.loadCatalogos();
   this.fetchSelectedItems();
     this.fetchCheckedIDs();
@@ -39,8 +42,17 @@ loadCatalogos() {
   }
   nombreCatalogo(){
   	
-  	  this.catalogoService.changeMessage(this.selectedItemsList[0].codCatalogo);
+  	 
+      if(this.idRuta==1)
+      {
   	   this.router.navigate(['equipo/insertar']);  
+        this.catalogoService.changeMessage(this.selectedItemsList[0].codCatalogo);
+      }
+      if(this.idRuta==2){
+        console.log("entra aqui");
+        this.componenteService.changeMessage(this.selectedItemsList[0].codCatalogo);
+         this.router.navigate(['componente/insertar']);  
+      }
   }
    changeSelection() {
     this.fetchSelectedItems()

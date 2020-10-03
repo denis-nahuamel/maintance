@@ -17,12 +17,18 @@ apiURL = 'http://localhost:3000/componente';
   }  
    public Componente: Observable<ComponenteInterface[]>;
  private messageSource = new BehaviorSubject('');
+ private codEquipoMensaje = new BehaviorSubject('');
   currentMessage = this.messageSource.asObservable();
+  codActualEquipo=this.codEquipoMensaje.asObservable();
  changeMessage(message: string) {
-  
+   
     this.messageSource.next(message)
-  }  
-
+  } 
+  //codigo del equipo seleccionado 
+codEquipo(message: string) {
+   
+    this.codEquipoMensaje.next(message)
+  }
 constructor(private http: HttpClient) { }
   
 getComponentesAsignados(id:string): Observable<any>  {

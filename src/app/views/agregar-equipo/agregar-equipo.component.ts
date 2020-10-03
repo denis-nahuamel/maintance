@@ -22,6 +22,7 @@ public codEquipo:string;
    private router: Router,private catalogoService: CatalogoService) {
 		this.activo = [{ value: 1, text: "Activo", selected: "checked" }, { value: 2, text: "Inactivo", selected: "" }];
     this.catalogoService.currentMessage.subscribe(message => this.nombreCatalogo = message)
+  
     }
 
   ngOnInit(): void {
@@ -90,7 +91,7 @@ public codEquipo:string;
   	this.router.navigate(['/equipo']);
   }
   getCatalogo(){
-  	   this.router.navigate(['equipo/seleccionar-catalogo']);  
+  	   this.router.navigate(['equipo/seleccionar-catalogo/1']); //1 para agregar catalogo a equipo 
   }
 
 }

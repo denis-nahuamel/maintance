@@ -11,7 +11,7 @@ import { map } from 'rxjs/operators';
 })
 export class IncidenciaService {
 
-apiURL = 'https://api.chucknorris.io/jokes';
+apiURL = 'http://localhost:3000/incidente/';
  httpOptions = {
     headers: new HttpHeaders({
       'Content-Type': 'application/json'
@@ -25,7 +25,7 @@ constructor(private http: HttpClient) { this.Incidencias=null; }
 //===================obtener incidencias para un tecnico================
   getIncidencias(): Observable<any> {
 	
-    return this.Incidencias= this.http.get('https://jsonplaceholder.typicode.com/todos').pipe(
+    return this.Incidencias= this.http.get(this.apiURL).pipe(
       map(this.extractData),
       catchError(this.handleError)
     );
@@ -33,14 +33,14 @@ constructor(private http: HttpClient) { this.Incidencias=null; }
   //==============obtener una unica incidencia==========================
   getIncidencia(id:string): Observable<any>  {
 	
-    return this.http.get('https://jsonplaceholder.typicode.com/todos/' + id).pipe(
+    return this.http.get(this.apiURL + id).pipe(
       map(this.extractData),
       catchError(this.handleError)
     );
   }
   //================agregar incidencia===========================
    agregarIncidencia(incidencia: any): Observable<any> {
-    return this.http.post(this.apiURL + 'incidencia', incidencia).pipe(
+    return this.http.post(this.apiURL + 'insertar', incidencia).pipe(
       catchError(this.handleError)
     );
   }

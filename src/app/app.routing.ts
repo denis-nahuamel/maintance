@@ -29,6 +29,7 @@ import { AgregarComponenteComponent } from './views/agregar-componente/agregar-c
 
 import { AgregarEquipoComponent } from './views/agregar-equipo/agregar-equipo.component';
 import { SeleccionarEquipoComponent } from './views/seleccionar-equipo/seleccionar-equipo.component';
+import { SelectEquipoComponent } from './views/select-equipo/select-equipo.component';
 
 export const routes: Routes = [
   {
@@ -139,7 +140,8 @@ export const routes: Routes = [
           ,{ path: 'insertar/:id', component: AgregarEquipoComponent},
 
           { path: 'insertar', component: AgregarEquipoComponent},
-          { path: 'seleccionar-catalogo', component: SeleccionarEquipoComponent}
+          { path: 'seleccionar-catalogo/:id', component: SeleccionarEquipoComponent},
+          { path: 'seleccionar-equipo', component: SelectEquipoComponent}
         ]
       }
       ,

@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders,HttpErrorResponse  } from '@angular/common/http';
 import { EquipoInterface } from '../models/equipo';
 
-import { Observable, throwError } from 'rxjs';
+import { Observable, throwError,BehaviorSubject } from 'rxjs';
 import { retry, catchError } from 'rxjs/operators';
 import { map } from 'rxjs/operators';
 @Injectable({
@@ -17,7 +17,12 @@ apiURL = 'http://localhost:3000/equipo';
   }  
    public Equipo: Observable<EquipoInterface[]>;
   
-
+ private messageSource = new BehaviorSubject('');
+  currentMessage = this.messageSource.asObservable();
+ changeMessage(message: string) {
+  
+    this.messageSource.next(message)
+  }  
 constructor(private http: HttpClient) { }
   
 getEquiposAsignados(id:string): Observable<any>  {

@@ -27,11 +27,7 @@ export class AgregarCatalogoComponent implements OnInit {
              categoria:catalogo.categoria,
              marca: catalogo.marca,
              modelo:catalogo.modelo,
-             descripcion:catalogo.descripcion,
-
-            
-            // codCatalogo:this.codCatalogo,
-             
+             descripcion:catalogo.descripcion,  
           });  
       });
   	}
@@ -43,21 +39,13 @@ export class AgregarCatalogoComponent implements OnInit {
     categoria: new FormControl('', Validators.required),
     marca: new FormControl('', Validators.required),
     modelo: new FormControl('', Validators.required),
-    descripcion: new FormControl(),
-    
-    
+    descripcion: new FormControl(),    
   });
    
  agregarCatalogo(data: CatalogoInterface) {
-     
-     console.log("data");
       if(this.codCatalogo){//actualizar catalogo
-         
-            
-             console.log(data);
              this.catalogoService.actualizarCatalogo(this.codCatalogo,data).subscribe(res => {
            console.log('Post updated successfully!');
-          
       });
              this.irAtras();
           

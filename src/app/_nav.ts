@@ -20,11 +20,6 @@ export const navItems: INavData[] = [
     icon: 'icon-drop'
   },
   {
-    name: 'Agregar componente',
-    url: '/componentes',
-    icon: 'icon-drop'
-  },
-  {
     name: 'Registrar Incidencia',
     url: '/registrar-incidencia',
     icon: 'icon-pencil'
@@ -46,7 +41,7 @@ export const navItems: INavData[] = [
       },
       {
         name: 'Agregar Componente',
-        url: '/componente/agregar-componente',
+        url: '/componente/insertar',
         icon: 'icon-bell'
       }
     ]
