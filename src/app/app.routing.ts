@@ -31,6 +31,9 @@ import { AgregarEquipoComponent } from './views/agregar-equipo/agregar-equipo.co
 import { SeleccionarEquipoComponent } from './views/seleccionar-equipo/seleccionar-equipo.component';
 import { SelectEquipoComponent } from './views/select-equipo/select-equipo.component';
 
+import { AgregarUsuarioComponent } from './views/usuario/agregar-usuario/agregar-usuario.component';
+import { ListarUsuariosComponent } from './views/usuario/listar-usuarios/listar-usuarios.component';
+
 export const routes: Routes = [
   {
     path: '',
@@ -134,6 +137,16 @@ export const routes: Routes = [
       }
       ,
       {
+        path: 'usuario', children: [
+          { path: '', component: ListarUsuariosComponent, /*canActivate: [AuthGuard],data: {role: 'estudiante'}*/  },
+          { path: 'editar/:id', component: AgregarUsuarioComponent}
+          ,{ path: 'insertar/:id', component: AgregarUsuarioComponent},
+
+          { path: 'insertar', component: AgregarUsuarioComponent}
+        ]
+      }
+      ,
+      {
         path: 'equipo', children: [
           { path: '', component: ListarEquiposComponent, /*canActivate: [AuthGuard],data: {role: 'estudiante'}*/  },
           { path: 'editar/:id', component: AgregarEquipoComponent}
@@ -141,7 +154,7 @@ export const routes: Routes = [
 
           { path: 'insertar', component: AgregarEquipoComponent},
           { path: 'seleccionar-catalogo/:id', component: SeleccionarEquipoComponent},
-          { path: 'seleccionar-equipo', component: SelectEquipoComponent}
+          { path: 'seleccionar-equipo/:id', component: SelectEquipoComponent}
         ]
       }
       ,

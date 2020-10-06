@@ -10,7 +10,7 @@ import { map } from 'rxjs/operators';
   providedIn: 'root'
 })
 export class CatalogoService {
-apiURL = 'http://localhost:3000/catalogo';
+apiURL = 'https://projectlab6.herokuapp.com/catalogo';
  httpOptions = {
     headers: new HttpHeaders({
       'Content-Type': 'application/json'

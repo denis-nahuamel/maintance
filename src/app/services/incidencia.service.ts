@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders,HttpErrorResponse  } from '@angular/common/http';
 import { IncidenteInterface } from '../models/incidente';
 
-import { Observable, throwError } from 'rxjs';
+import { Observable, throwError,BehaviorSubject } from 'rxjs';
 import { retry, catchError } from 'rxjs/operators';
 import { map } from 'rxjs/operators';
 
@@ -11,15 +11,19 @@ import { map } from 'rxjs/operators';
 })
 export class IncidenciaService {
 
-apiURL = 'http://localhost:3000/incidente/';
+apiURL = 'https://projectlab6.herokuapp.com/incidente/';
  httpOptions = {
     headers: new HttpHeaders({
       'Content-Type': 'application/json'
     })
   }  
    public Incidencias: Observable<IncidenteInterface[]>;
-  // public Producto: Observable<ProductoInterface[]>;
-
+   
+  private codEquipoMensaje = new BehaviorSubject('');
+  codActualEquipo=this.codEquipoMensaje.asObservable();
+  codEquipo(message: string) {
+    this.codEquipoMensaje.next(message)
+  }
 constructor(private http: HttpClient) { this.Incidencias=null; }
   
 //===================obtener incidencias para un tecnico================
@@ -40,8 +44,8 @@ constructor(private http: HttpClient) { this.Incidencias=null; }
   }
   //================agregar incidencia===========================
    agregarIncidencia(incidencia: any): Observable<any> {
-    return this.http.post(this.apiURL + 'insertar', incidencia).pipe(
-      catchError(this.handleError)
+    return this.http.post<IncidenteInterface>(this.apiURL+'/insertar', incidencia).pipe(
+       catchError(this.handleError)
     );
   }
    private extractData(res: Response): any {

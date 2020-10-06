@@ -17,8 +17,10 @@ public codComponente:string;
   public nombreEquipo="";
   valorEstado:any;
   activo:any;
+
    public nombreRepuesto="";
   message:string;
+  
   constructor(private activatedRoute: ActivatedRoute,
     private componenteService: ComponenteService,
      private equipoService: EquiposService,
@@ -97,6 +99,6 @@ public codComponente:string;
        this.router.navigate(['equipo/seleccionar-catalogo/2']);  //2 para seleccionar catalogo para componente 
   }
 getEquipo(){
-       this.router.navigate(['equipo/seleccionar-equipo']); 
+       this.router.navigate(['equipo/seleccionar-equipo/1']); //opcion de componente 
   }
 }
