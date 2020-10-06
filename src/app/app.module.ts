@@ -68,6 +68,8 @@ import { SeleccionarEquipoComponent } from './views/seleccionar-equipo/seleccion
 import { SelectEquipoComponent } from './views/select-equipo/select-equipo.component';
 import { AgregarUsuarioComponent } from './views/usuario/agregar-usuario/agregar-usuario.component';
 import { ListarUsuariosComponent } from './views/usuario/listar-usuarios/listar-usuarios.component';
+import { AgregarTecnicoComponent } from './views/tecnico/agregar-tecnico/agregar-tecnico.component';
+import { ListarTecnicosComponent } from './views/tecnico/listar-tecnicos/listar-tecnicos.component';
 //import { EquipoComponent } from './services/equipo/equipo.component';
 
 
@@ -119,7 +121,9 @@ import { ListarUsuariosComponent } from './views/usuario/listar-usuarios/listar-
      AgregarComponenteComponent,
      SelectEquipoComponent,
      AgregarUsuarioComponent,
-     ListarUsuariosComponent
+     ListarUsuariosComponent,
+     AgregarTecnicoComponent,
+     ListarTecnicosComponent
   ],
   providers: [{
     provide: LocationStrategy,
