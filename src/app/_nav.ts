@@ -81,6 +81,23 @@ export const navItems: INavData[] = [
     ]
   },
   {
+    name: 'Usuario',
+   // url: '/catalogo',
+    icon: 'icon-bell',
+    children: [
+      {
+        name: 'Listar Usuarios',
+        url: '/usuario',
+        icon: 'icon-bell'
+      },
+      {
+        name: 'Agregar Equipo',
+        url: '/usuari/insertar',
+        icon: 'icon-bell'
+      }
+    ]
+  },
+  {
     name: 'Docentes',
     url: '/docentes',
     icon: 'icon-cursor',
