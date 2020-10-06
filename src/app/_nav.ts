@@ -82,7 +82,6 @@ export const navItems: INavData[] = [
   },
   {
     name: 'Usuario',
-   // url: '/catalogo',
     icon: 'icon-bell',
     children: [
       {
@@ -92,7 +91,23 @@ export const navItems: INavData[] = [
       },
       {
         name: 'Agregar Equipo',
-        url: '/usuari/insertar',
+        url: '/usuario/insertar',
+        icon: 'icon-bell'
+      }
+    ]
+  },
+  {
+    name: 'Tecnico',
+    icon: 'icon-bell',
+    children: [
+      {
+        name: 'Listar Tecnicos',
+        url: '/tecnico',
+        icon: 'icon-bell'
+      },
+      {
+        name: 'Agregar Tecnico',
+        url: '/tecnico/insertar',
         icon: 'icon-bell'
       }
     ]

@@ -70,6 +70,7 @@ import { AgregarUsuarioComponent } from './views/usuario/agregar-usuario/agregar
 import { ListarUsuariosComponent } from './views/usuario/listar-usuarios/listar-usuarios.component';
 import { AgregarTecnicoComponent } from './views/tecnico/agregar-tecnico/agregar-tecnico.component';
 import { ListarTecnicosComponent } from './views/tecnico/listar-tecnicos/listar-tecnicos.component';
+import { TecnicoService } from './services/tecnico.service';
 //import { EquipoComponent } from './services/equipo/equipo.component';
 
 
@@ -127,7 +128,8 @@ import { ListarTecnicosComponent } from './views/tecnico/listar-tecnicos/listar-
   ],
   providers: [{
     provide: LocationStrategy,
-    useClass: HashLocationStrategy
+    useClass: HashLocationStrategy,
+    providers: [TecnicoService]
   }],
   bootstrap: [ AppComponent ]
 })

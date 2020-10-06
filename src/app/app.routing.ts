@@ -34,6 +34,9 @@ import { SelectEquipoComponent } from './views/select-equipo/select-equipo.compo
 import { AgregarUsuarioComponent } from './views/usuario/agregar-usuario/agregar-usuario.component';
 import { ListarUsuariosComponent } from './views/usuario/listar-usuarios/listar-usuarios.component';
 
+import { AgregarTecnicoComponent } from './views/tecnico/agregar-tecnico/agregar-tecnico.component';
+import { ListarTecnicosComponent } from './views/tecnico/listar-tecnicos/listar-tecnicos.component';
+
 export const routes: Routes = [
   {
     path: '',
@@ -133,6 +136,16 @@ export const routes: Routes = [
           ,{ path: 'insertar/:id', component: AgregarComponenteComponent},
 
           { path: 'insertar', component: AgregarComponenteComponent}
+        ]
+      }
+      ,
+       {
+        path: 'tecnico', children: [
+          { path: '', component: ListarTecnicosComponent, /*canActivate: [AuthGuard],data: {role: 'estudiante'}*/  },
+          { path: 'editar/:id', component: AgregarTecnicoComponent}
+          ,{ path: 'insertar/:id', component: AgregarTecnicoComponent},
+
+          { path: 'insertar', component: AgregarTecnicoComponent}
         ]
       }
       ,
