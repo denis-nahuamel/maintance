@@ -6,7 +6,9 @@ import { Observable, throwError,BehaviorSubject } from 'rxjs';
 import { retry, catchError } from 'rxjs/operators';
 import { map } from 'rxjs/operators';
 
-@Injectable()
+@Injectable({
+  providedIn: 'root'
+})
 export class TecnicoService {
 apiURL = 'https://projectlab6.herokuapp.com/tecnico';
  httpOptions = {
@@ -42,7 +44,7 @@ getTecnicosAsignados(id:string): Observable<any>  {
   //===================================================
    getTecnicos(): Observable<any>  {
   
-    return this.http.get(this.apiURL).pipe(
+    return this.http.get(this.apiURL+'/').pipe(
       map(this.extractData),
       catchError(this.handleError)
     );
