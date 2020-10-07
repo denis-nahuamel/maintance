@@ -11,18 +11,18 @@ import { FormGroup, FormControl, Validators, NgForm } from '@angular/forms';
 })
 export class AgregarTecnicoComponent implements OnInit {
 
-  public codTecnico:string;
+  public dni:string;
 	public titulo:string;
   constructor(private activatedRoute: ActivatedRoute,
-   private router: Router) {
+   private router: Router,private tecnicoService:TecnicoService) {
 
     }
 
   ngOnInit(): void {
-  	this.codTecnico = this.activatedRoute.snapshot.paramMap.get('id');//idgrado
-  	/*if(this.codTecnico){
+  	this.dni = this.activatedRoute.snapshot.paramMap.get('id');//idgrado
+  	if(this.dni){
   		this.titulo="Modificar Tecnico";
-  		this.tecnicoService.getTecnico(this.codTecnico).subscribe(tecnico => {             
+  		this.tecnicoService.getTecnico(this.dni).subscribe(tecnico => {             
          
           this.postTecnico.setValue({
              dni:tecnico.dni,
@@ -30,33 +30,34 @@ export class AgregarTecnicoComponent implements OnInit {
              apellidos:tecnico.apellidos,
              telefono:tecnico.telefono,  
               correo:tecnico.correo,  
-               contra:tecnico.contra,  
+              // contra:tecnico.contra,  
           });  
-      });*/
-  //	}
-  	//else{
+      });
+  	}
+  	else{
   		this.titulo="Agregar Tecnico";
-  	//}
+  	}
   }
    public postTecnico = new FormGroup({
     dni: new FormControl('', Validators.required),
     nombre: new FormControl('', Validators.required),
     apellidos: new FormControl('', Validators.required),
     telefono: new FormControl(), 
-    correo: new FormControl('', Validators.required),
-    contra: new FormControl(),    
+    correo: new FormControl(),
+    //contra: new FormControl(),    
   });
    
- /*agregarTecnico(data: TecnicoInterface) {
-      if(this.codTecnico){//actualizar tecnico
-             this.tecnicoService.actualizarTecnico(this.codTecnico,data).subscribe(res => {
+ agregarTecnico(data: TecnicoInterface) {
+      if(this.dni){//actualizar tecnico
+            console.log(data);
+             this.tecnicoService.actualizarTecnico(this.dni,data).subscribe(res => {
            console.log('Post updated successfully!');
       });
              this.irAtras();
           
       }
       else{//agregar tecnico
-        //this.postTecnico.value.codTecnico=this.codTecnico;
+        //this.postTecnico.value.dni=this.dni;
       
         this.tecnicoService.agregarTecnico(data).subscribe(res => {
          console.log('Se agrego con exito',res);
@@ -66,7 +67,7 @@ export class AgregarTecnicoComponent implements OnInit {
         this.irAtras();
       }
    	
-  }*/
+  }
   irAtras(){
   	this.router.navigate(['/tecnico']);
   }

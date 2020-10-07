@@ -66,7 +66,7 @@ getTecnicosAsignados(id:string): Observable<any>  {
   }
 //===================actualizar tecnico=====================
   actualizarTecnico(idTecnico, tecnico): Observable<any> {
-   console.log(this.apiURL+'/editar/'+idTecnico);
+   console.log();
     return this.http.put<TecnicoInterface>(this.apiURL+'/editar/'+idTecnico, JSON.stringify(tecnico),this.httpOptions).pipe(
 
      catchError(this.handleError)
