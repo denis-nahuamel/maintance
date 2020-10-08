@@ -25,8 +25,8 @@ public nombreEquipo="";
     
   });
  agregarIncidencia(incidente:IncidenteInterface){
-  	
-      in.codEquipo=this.nombreEquipo;
+  	//
+      incidente.codEquipo=this.nombreEquipo;
       incidente.fecha=this.convertDateFormat(incidente.fecha);
       console.log("incidencia",incidente);
   	 this.incidenciaService.agregarIncidencia(incidente).subscribe((result) => {
