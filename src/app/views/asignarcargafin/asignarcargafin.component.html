@@ -12,18 +12,18 @@
                               <thead class="thead-dark">
                                 <tr>
                                   <th scope="col">#</th>
-                                  <th scope="col">Laboratorio</th>
-                                  <th scope="col">Nombre</th>
+                                  <th scope="col">Ubicaci&oacute;n</th>
+                                  <th scope="col">Descripci&oacute;n</th>
                                   <th scope="col">Seleccionar</th>
                                 </tr>
                               </thead>
                               <tbody>
-                                <tr *ngFor="let producto of Productos; let i = index;">
-                                  <th scope="row">{{producto.id}}</th>
-                                  <td>{{producto.title}}</td>
-                                  <td>PC-4</td>
+                                <tr *ngFor="let equipo of Equipos; let i = index;">
+                                  <th scope="row">{{equipo.codEquipo}}</th>
+                                  <td>{{equipo.ubicacion}}</td>
+                                  <td>{{equipo.descripcion}}</td>
                                   <td> 
-                                           <input type="checkbox" class="btn btn-primary" [(ngModel)]="producto.checked" (change)="changeSelection()">
+                                           <input type="checkbox" class="btn btn-primary" [(ngModel)]="equipo.checked" (change)="changeSelection()">
                                           
                                      
                                   </td>

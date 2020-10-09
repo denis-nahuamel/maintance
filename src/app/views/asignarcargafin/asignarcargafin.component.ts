@@ -1,8 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { PersonalInterface } from '../../models/personal';
-import { ProductoInterface } from '../../models/producto';
+import { EquipoInterface } from '../../models/eq';
 import { PersonalService } from "../../services/personal.service";
+import { EquipoService } from "../../services/equipo.service";
 import { Observable } from 'rxjs/internal/Observable';
 
 @Component({
@@ -13,11 +14,12 @@ import { Observable } from 'rxjs/internal/Observable';
 export class AsignarcargafinComponent implements OnInit {
  public idTecnico=null;
  public tecnico:PersonalInterface;
- public Producto: Observable<ProductoInterface[]>;
- Productos: any = [];
+ public Equipo: Observable<EquipoInterface[]>;
+ Equipos: any = [];
  selectedItemsList = [];
   checkedIDs = [];
-  constructor(private activatedRoute: ActivatedRoute,private personalService: PersonalService, private router: Router) {
+  constructor(private activatedRoute: ActivatedRoute,private personalService: PersonalService, 
+  private router: Router,private equipoService: EquipoService) {
        this.tecnico=null;
    }
 
@@ -26,7 +28,7 @@ export class AsignarcargafinComponent implements OnInit {
   	 this.personalService.getTecnico(this.idTecnico).subscribe(
       (data: PersonalInterface) => this.tecnico = { ...data }
     );
-  	 this.loadProducto();
+  	 this.loadEquipo();
   	  this.fetchSelectedItems();
     this.fetchCheckedIDs();
   }
@@ -36,10 +38,11 @@ export class AsignarcargafinComponent implements OnInit {
       this.tecnico = data;
     })
   }*/
-  loadProducto() {
+  loadEquipo() {
   	
-    return this.personalService.getProducto().subscribe((data: {}) => {
-      this.Productos = data;
+    return this.equipoService.getEquipos().subscribe((data: {}) => {
+      console.log(data);
+      this.Equipos = data;
     })
   }
   changeSelection() {
@@ -47,7 +50,7 @@ export class AsignarcargafinComponent implements OnInit {
   }
 
   fetchSelectedItems() {
-    this.selectedItemsList = this.Productos.filter((value, index) => {
+    this.selectedItemsList = this.Equipos.filter((value, index) => {
       return value.checked
     });
      console.log("items",this.selectedItemsList);
@@ -55,7 +58,7 @@ export class AsignarcargafinComponent implements OnInit {
 
   fetchCheckedIDs() {
     this.checkedIDs = []
-    this.Productos.forEach((value, index) => {
+    this.Equipos.forEach((value, index) => {
       if (value.checked) {
         this.checkedIDs.push(value.id);
       }
