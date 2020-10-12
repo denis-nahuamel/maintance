@@ -1,9 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { PersonalInterface } from '../../models/personal';
-import { EquipoInterface } from '../../models/eq';
+import { EquipoInterface } from '../../models/equipo';
 import { PersonalService } from "../../services/personal.service";
-import { EquipoService } from "../../services/equipo.service";
+import { EquiposService } from "../../services/equipos.service";
 import { Observable } from 'rxjs/internal/Observable';
 
 @Component({
@@ -19,7 +19,7 @@ export class AsignarcargafinComponent implements OnInit {
  selectedItemsList = [];
   checkedIDs = [];
   constructor(private activatedRoute: ActivatedRoute,private personalService: PersonalService, 
-  private router: Router,private equipoService: EquipoService) {
+  private router: Router,private equipoService: EquiposService) {
        this.tecnico=null;
    }
 
