@@ -15,7 +15,9 @@ import { EquipoIncidenteComponent } from './views/equipo-incidente/equipo-incide
 import { RepuestosComponent } from './views/repuestos/repuestos.component';
 import { EquipoMantenimientoComponent } from './views/equipo-mantenimiento/equipo-mantenimiento.component';
 import { RegistrarIncidenciaComponent } from './views/registrar-incidencia/registrar-incidencia.component';
+
 import { ListarDocenteComponent } from './views/listar-docente/listar-docente.component';
+import { ListarIncidentesComponent } from './views/docente/listar-incidentes/listar-incidentes.component';
 import { DocenteListarComponent } from './views/docente-listar/docente-listar.component';
 import { AgregarDocenteComponent } from './views/agregar-docente/agregar-docente.component';
 
@@ -72,19 +74,7 @@ export const routes: Routes = [
     }
   },
   
-   {
-    path: 'docentes', children: [
-          { path: '', component: ListarDocenteComponent, /*canActivate: [AuthGuard],data: {role: 'estudiante'}*/  },
-          { path: 'agregar-docente', 
-            children: [
-                      { path: '', component: AgregarDocenteComponent, /*canActivate: [AuthGuard],data: {role: 'estudiante'}*/  },
-                      { path: ':idDocente', component: AgregarDocenteComponent}
-                    
-                  ]
-          },
-        ]
-    
-  },
+  
   {
     path: '',
     component: DefaultLayoutComponent,
@@ -171,6 +161,26 @@ export const routes: Routes = [
         ]
       }
       ,
+       {
+          path: 'docente', children: [
+          { path: '', component: ListarDocenteComponent, /*canActivate: [AuthGuard],data: {role: 'estudiante'}*/  },
+          { path: 'agregar-docente', 
+            children: [
+                      { path: '', component: AgregarDocenteComponent, /*canActivate: [AuthGuard],data: {role: 'estudiante'}*/  },
+                      { path: ':idDocente', component: AgregarDocenteComponent}
+                    
+                  ]
+          },
+          { path: 'incidente', 
+            children: [
+                      { path: '', component: ListarIncidentesComponent, /*canActivate: [AuthGuard],data: {role: 'estudiante'}*/  },
+                      //{ path: ':idDocente', component: AgregarDocenteComponent}
+                    
+                  ]
+          },
+        ]
+    
+  },
       {
         path: 'buttons',
         loadChildren: () => import('./views/buttons/buttons.module').then(m => m.ButtonsModule)

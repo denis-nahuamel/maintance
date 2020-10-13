@@ -70,6 +70,7 @@ import { AgregarUsuarioComponent } from './views/usuario/agregar-usuario/agregar
 import { ListarUsuariosComponent } from './views/usuario/listar-usuarios/listar-usuarios.component';
 import { AgregarTecnicoComponent } from './views/tecnico/agregar-tecnico/agregar-tecnico.component';
 import { ListarTecnicosComponent } from './views/tecnico/listar-tecnicos/listar-tecnicos.component';
+import { ListarIncidentesComponent } from './views/docente/listar-incidentes/listar-incidentes.component';
 //import { TecnicoService } from './services/tecnico.service';
 //import { EquipoComponent } from './services/equipo/equipo.component';
 
@@ -124,7 +125,8 @@ import { ListarTecnicosComponent } from './views/tecnico/listar-tecnicos/listar-
      AgregarUsuarioComponent,
      ListarUsuariosComponent,
      AgregarTecnicoComponent,
-     ListarTecnicosComponent
+     ListarTecnicosComponent,
+     ListarIncidentesComponent
   ],
   providers: [{
     provide: LocationStrategy,

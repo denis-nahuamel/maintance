@@ -48,11 +48,34 @@ constructor(private http: HttpClient) { this.Incidencias=null; }
        catchError(this.handleError)
     );
   }
+   //===================actualizar incidencia	=====================
+  actualizarIncidencia(idIncidencia, incidencia	): Observable<any> {
+   console.log(this.apiURL+'/editar/'+idIncidencia);
+    return this.http.put<IncidenteInterface>(this.apiURL+'/editar/'+idIncidencia, JSON.stringify(incidencia	),this.httpOptions).pipe(
+
+     catchError(this.handleError)
+    );
+  }
+//===================borrar incidencia	=====================
+  borrarIncidencia(id) {
+  
+    return this.http.delete<IncidenteInterface>(this.apiURL+'/eliminar/'+id).pipe(
+      catchError(this.errorHandler)
+    )
+  }
    private extractData(res: Response): any {
     const body = res;
     return body || { };
   }
-
+errorHandler(error) {
+    let errorMessage = '';
+    if(error.error instanceof ErrorEvent) {
+      errorMessage = error.error.message;
+    } else {
+      errorMessage = `Error Code: ${error.status}\nMessage: ${error.message}`;
+    }
+    return throwError(errorMessage);
+ }
   private handleError(error: HttpErrorResponse): any {
     if (error.error instanceof ErrorEvent) {
       console.error('An error occurred:', error.error.message);

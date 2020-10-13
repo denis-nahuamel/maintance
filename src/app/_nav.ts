@@ -14,6 +14,23 @@ export const navItems: INavData[] = [
     title: true,
     name: 'Theme'
   },*/
+   {
+    name: 'Incidentes',
+    url: '/docente',
+    icon: 'icon-bell',
+    children: [
+      {
+        name: 'Listar Incidentes',
+        url: '/docente/incidente',
+        icon: 'icon-bell'
+      },
+     /* {
+        name: 'Agregar Catalogo',
+        url: '/catalogo/insertar',
+        icon: 'icon-bell'
+      }*/
+    ]
+  },
   {
     name: 'Asignar Carga',
     url: '/asignar-carga',
