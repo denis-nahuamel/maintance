@@ -18,7 +18,7 @@ import { RegistrarIncidenciaComponent } from './views/registrar-incidencia/regis
 
 import { ListarDocenteComponent } from './views/listar-docente/listar-docente.component';
 import { ListarIncidentesComponent } from './views/docente/listar-incidentes/listar-incidentes.component';
-import { DocenteListarComponent } from './views/docente-listar/docente-listar.component';
+//import { DocenteListarComponent } from './views/docente-listar/docente-listar.component';
 import { AgregarDocenteComponent } from './views/agregar-docente/agregar-docente.component';
 
 import { DocenteAgregarComponent } from './views/docente-agregar/docente-agregar.component';

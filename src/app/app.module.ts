@@ -55,14 +55,13 @@ import { EquipoMantenimientoComponent } from './views/equipo-mantenimiento/equip
 import { RepuestosComponent } from './views/repuestos/repuestos.component';
 import { ListarDocenteComponent } from './views/listar-docente/listar-docente.component';
 import { AgregarDocenteComponent } from './views/agregar-docente/agregar-docente.component';
-import { AgregarComponenteComponent } from './views/agregar-componente/agregar-componente.component';
+//import { AgregarComponenteComponent } from './views/agregar-componente/agregar-componente.component';
 import { DocenteAgregarComponent } from './views/docente-agregar/docente-agregar.component';
-import { DocenteListarComponent } from './docente-listar/docente-listar.component';
 import { CatalogoComponent } from './views/catalogo/catalogo.component';
 import { ListarCatalogoComponent } from './views/listar-catalogo/listar-catalogo.component';
 import { AgregarCatalogoComponent } from './views/agregar-catalogo/agregar-catalogo.component';
 import { ListarEquiposComponent } from './views/listar-equipos/listar-equipos.component';
-import { ListarComponentesComponent } from './views/listar-componentes/listar-componentes.component';
+//import { ListarComponentesComponent } from './views/listar-componentes/listar-componentes.component';
 import { AgregarEquipoComponent } from './views/agregar-equipo/agregar-equipo.component';
 import { SeleccionarEquipoComponent } from './views/seleccionar-equipo/seleccionar-equipo.component';
 import { SelectEquipoComponent } from './views/select-equipo/select-equipo.component';
@@ -111,16 +110,15 @@ import { ListarIncidentesComponent } from './views/docente/listar-incidentes/lis
      ListarDocenteComponent,
      AgregarDocenteComponent,
      DocenteAgregarComponent,
-     DocenteListarComponent,
      CatalogoComponent,
      ListarCatalogoComponent,
      AgregarCatalogoComponent,
      ListarEquiposComponent,
-     ListarComponentesComponent,
+    // ListarComponentesComponent,
      AgregarEquipoComponent,
      SeleccionarEquipoComponent,
      //EquipoComponent,
-     AgregarComponenteComponent,
+     //AgregarComponenteComponent,
      SelectEquipoComponent,
      AgregarUsuarioComponent,
      ListarUsuariosComponent,
