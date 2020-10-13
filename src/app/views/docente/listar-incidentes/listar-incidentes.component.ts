@@ -36,10 +36,10 @@ constructor(private activatedRoute: ActivatedRoute,private incidenciaService: In
     })
   }
   incidenciaDetalles(incidencia:IncidenteInterface){
-      this.router.navigate(['incidencia/editar/'+incidencia.codIncidente]);  
+      this.router.navigate(['docente/incidente/editar/'+incidencia.codIncidente]);  
   }
   agregarIncidencia(){
     
-      this.router.navigate(['incidencia/insertar']);  
+      this.router.navigate(['docente/incidente/insertar']);  
   }
 }

@@ -37,7 +37,7 @@ constructor(private http: HttpClient) { this.Incidencias=null; }
   //==============obtener una unica incidencia==========================
   getIncidencia(id:string): Observable<any>  {
 	
-    return this.http.get(this.apiURL + id).pipe(
+    return this.http.get(this.apiURL +'/editar/'+ id).pipe(
       map(this.extractData),
       catchError(this.handleError)
     );

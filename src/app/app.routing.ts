@@ -174,7 +174,8 @@ export const routes: Routes = [
           { path: 'incidente', 
             children: [
                       { path: '', component: ListarIncidentesComponent, /*canActivate: [AuthGuard],data: {role: 'estudiante'}*/  },
-                      //{ path: ':idDocente', component: AgregarDocenteComponent}
+                      { path: 'insertar', component: RegistrarIncidenciaComponent},
+                       { path: 'editar/:codIncidente', component: RegistrarIncidenciaComponent}
                     
                   ]
           },

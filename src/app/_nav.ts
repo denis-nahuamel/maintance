@@ -24,11 +24,11 @@ export const navItems: INavData[] = [
         url: '/docente/incidente',
         icon: 'icon-bell'
       },
-     /* {
-        name: 'Agregar Catalogo',
-        url: '/catalogo/insertar',
-        icon: 'icon-bell'
-      }*/
+     {
+    name: 'Registrar Incidente',
+    url: '/docente/incidente/insertar',
+    icon: 'icon-pencil'
+  },
     ]
   },
   {
@@ -36,11 +36,7 @@ export const navItems: INavData[] = [
     url: '/asignar-carga',
     icon: 'icon-drop'
   },
-  {
-    name: 'Registrar Incidencia',
-    url: '/registrar-incidencia',
-    icon: 'icon-pencil'
-  },
+ 
    {
     name: 'Equipos Asignados',
     url: '/equipos-asignados',
