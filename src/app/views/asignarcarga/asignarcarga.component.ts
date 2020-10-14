@@ -1,50 +1,54 @@
-import { Component, OnInit } from '@angular/core';
-import { PersonalInterface } from '../../models/personal';
-import { PersonalService } from "../../services/personal.service";
-import { FormBuilder, FormGroup, FormArray, FormControl, ValidatorFn } from '@angular/forms';
-import { of } from 'rxjs';
-import { ActivatedRoute, Router } from '@angular/router';
-
+import { Component, OnInit } from "@angular/core";
+import { TecnicoInterface } from "../../models/tecnico";
+import { TecnicoService } from "../../services/tecnico.service";
+import {
+  FormBuilder,
+  FormGroup,
+  FormArray,
+  FormControl,
+  ValidatorFn
+} from "@angular/forms";
+import { of } from "rxjs";
+import { ActivatedRoute, Router } from "@angular/router";
 
 @Component({
-  selector: 'app-asignarcarga',
-  templateUrl: './asignarcarga.component.html',
-  styleUrls: ['./asignarcarga.component.css']
+  selector: "app-asignarcarga",
+  templateUrl: "./asignarcarga.component.html",
+  styleUrls: ["./asignarcarga.component.css"]
 })
 export class AsignarcargaComponent implements OnInit {
-private frase: PersonalInterface ;
- myGroup: FormGroup;
- Personal: any = [];
-  Productos: any = [];
- products: PersonalInterface[] = [];
-  constructor(private personalService: PersonalService,private formBuilder: FormBuilder, private router: Router) {
-  
-  }
+  private frase: TecnicoInterface;
+  myGroup: FormGroup;
+  Tecnico: any = [];
+  Tecnicos: any = [];
+  products: TecnicoInterface[] = [];
+  constructor(
+    private tecnicoService: TecnicoService,
+    private formBuilder: FormBuilder,
+    private router: Router
+  ) {}
 
   ngOnInit(): void {
-    
-    this.loadProducto();
-
+    this.loadTecnicos();
   }
 
-  loadProducto() {
-  	
-    return this.personalService.getProducto().subscribe((data: {}) => {
-    
-      this.Productos = data;
-    })
+  loadTecnicos() {
+    return this.tecnicoService
+      .getTecnicosAsignados("2")
+      .subscribe((data: {}) => {
+        this.Tecnicos = data;
+      });
   }
-  getTecnico(personal:PersonalInterface){
-  	   this.router.navigate(['asignar-carga/'+personal.id]);  
+  getTecnico(tecnico: TecnicoInterface) {
+    this.tecnicoService.tecnicoSeleccionado(tecnico);
+    this.router.navigate(["asignar-carga/" + tecnico.dni]);
   }
 
-	
-	checkAllCheckBox(ev) {
-		this.Productos.forEach(x => x.checked = ev.target.checked)
-	}
+  checkAllCheckBox(ev) {
+    this.Tecnicos.forEach(x => (x.checked = ev.target.checked));
+  }
 
-	isAllCheckBoxChecked() {
-		return this.Productos.every(p => p.checked);
-	}
-  
+  isAllCheckBoxChecked() {
+    return this.Tecnicos.every(p => p.checked);
+  }
 }

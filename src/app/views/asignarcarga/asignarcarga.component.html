@@ -1,54 +1,55 @@
- <div class="container py-3">
-    <div class="row">
-        <div class="mx-auto col-sm-12">
-                    <!-- form user info -->
-                    <div class="card">
-                        <div class="card-header">
-                            <h4 class="mb-0">Equipos asignados</h4>
-                        </div>
-                        <div class="card-body">
-                          
-                            <table class="table">
-                              <thead class="thead-dark">
-                                <tr>
-                                  <th scope="col">#</th>
-                                  <th scope="col">Nombres</th>
-                                  <th scope="col">Equipos Asignados</th>
-                                  <th scope="col">Seleccionar</th>
-                                </tr>
-                              </thead>
-                              <tbody>
-                               
-                                <tr *ngFor="let producto of Productos; let i = index;let odd = odd" [ngClass]="odd ? 'odd_col' : 'even_col'">
-                                  <th scope="row">{{producto.id}}</th>
-                                  <td>{{producto.title}}</td>
-                                  <td>4</td>
-                                  <td> 
-                                     <div class="col-lg-9">
-                                          <input type="button" class="btn btn-primary" value="Siguiente" [(ngModel)]="Productos[i].checked" (click)="getTecnico(producto)" style="width:80px;" >
-                                          <!--<button type="button" class="btn btn-outline-success" [(ngModel)]="Productos[i].checked" (click)="getTecnico(producto)">ver detalles</button>-->
-                                        </div> 
-                                      
-                                  </td>
-                                </tr>
-                          
-                              </tbody>
-                            </table>
-                          
-                            <div class="form-group row">
-                                    <label class="col-lg-3 col-form-label form-control-label"></label>
-                                    <div class="col-lg-9">
-                                        <input type="reset" class="btn btn-secondary" value="Cancelar">
-                                        <input type="button" class="btn btn-primary" value="Siguiente">
+<div class="container py-3">
+	<div class="row">
+		<div class="mx-auto col-sm-12">
+			<!-- form user info -->
+			<div class="card">
+				<div class="card-header">
+					<h4 class="mb-0">Equipos asignados</h4>
+				</div>
+				<div class="card-body">
+
+					<table class="table">
+						<thead class="thead-dark">
+							<tr>
+								<th scope="col">DNI</th>
+								<th scope="col">Nombres</th>
+								<th scope="col">Apellidos</th>
+								<th scope="col">Seleccionar</th>
+							</tr>
+						</thead>
+						<tbody>
+
+							<tr *ngFor="let tecnico of Tecnicos; let i = index;let odd = odd"
+								[ngClass]="odd ? 'odd_col' : 'even_col'">
+								<th scope="row">{{tecnico.dni}}</th>
+								<td>{{tecnico.nombre}}</td>
+								<td>{{tecnico.apellidos}}</td>
+								<td>
+
+
+									<button type="button" class="btn btn-success"   (click)="getTecnico(tecnico)">ver detalles</button>
+
+
+								</td>
+							</tr>
+
+						</tbody>
+					</table>
+
+					<div class="form-group row">
+						<label class="col-lg-3 col-form-label form-control-label"></label>
+						<div class="col-lg-9">
+							<input type="reset" class="btn btn-secondary" value="Cancelar">
+							<input type="button" class="btn btn-primary" value="Siguiente">
                                     </div>
-                                </div>
-                          
-                        </div>
-                    </div>
-                    <!-- /form user info -->
-        </div>
-    </div>
-</div>
+						</div>
+
+					</div>
+				</div>
+				<!-- /form user info -->
+			</div>
+		</div>
+	</div>
 	<script type="text/javascript">
-           $('.datepicker').datepicker();
-        </script>
+		$('.datepicker').datepicker();
+	</script>
