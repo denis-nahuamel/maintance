@@ -33,7 +33,7 @@ export class AsignarcargafinComponent implements OnInit {
   ngOnInit(): void {
     this.idTecnico = this.activatedRoute.snapshot.paramMap.get("id"); //idgrado
     this.tecnicoService.tecnicoActual.subscribe(
-      message => (this.nombreTecnico = message.)
+      message => (this.nombreTecnico = message.no)
     );
     this.personalService
       .getTecnico(this.idTecnico)
