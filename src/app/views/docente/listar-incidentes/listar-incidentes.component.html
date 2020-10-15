@@ -1,48 +1,53 @@
 <div class="container py-3">
-    <div class="row">
-        <div class="mx-auto col-sm-12">
-                    <!-- form user info -->
-                    <div class="card">
-                        <div class="card-header">
-                            <h4 class="mb-0">Listar Incidentes</h4>
-                             <button type="button" class="btn btn-success" style="float:right" (click)="agregarIncidencia()">Agregar Incidente</button>
-                        </div>
-                        <div class="card-body">
-                            <table class="table">
-                              <thead class="thead-dark">
-                                <tr>
-                                  <th scope="col">Codigo</th>
-                                  <th scope="col">Fecha</th>
-                                  <th scope="col">Cod Equipo</th>
-                                  <th scope="col">Descripci&oacute;n</th>
-                                  <th scope="col">Estado</th>
-                                 <th scope="col">Eliminar</th>
-                                
-                                   <th scope="col">Detalles</th>
-                                </tr>
-                              </thead>
-                              <tbody>
-                                <tr *ngFor="let incidente of Incidencias; let i = index;">
-                                  <th scope="row">{{incidente.codIncidente}}</th>
-                                  <td>{{incidente.fecha}}</td>
-                                  <td>{{incidente.codEquipo}}</td>
-                                  <td>{{incidente.descripcion}}</td>
-                                <td>{{incidente.descripcion}}</td>
-                                  <td><button type="button" class="btn btn-danger" (click)="borrarIncidencia(incidente)" >Eliminar</button></td>
-                                  <td><button type="button" class="btn btn-outline-success" (click)="incidenciaDetalles(incidente)">ver detalles</button></td>
-                                </tr>
-                                
-                              </tbody>
-                            </table>
+	<div class="row">
+		<div class="mx-auto col-sm-12">
+			<!-- form user info -->
+			<div class="card">
+				<div class="card-header">
+					<h4 class="mb-0">Listar Incidentes</h4>
+					<button type="button" class="btn btn-success" style="float:right" (click)="agregarIncidencia()">Agregar Incidente</button>
+				</div>
+				<div class="card-body">
+					<table class="table">
+						<thead class="thead-dark">
+							<tr>
+								<th scope="col">Codigo</th>
+								<th scope="col">Fecha</th>
+								<th scope="col">Cod Equipo</th>
+								<th scope="col">Descripci&oacute;n</th>
+								<th scope="col">Estado</th>
+								<th scope="col">Eliminar</th>
 
-                          
-                        </div>
-                    </div>
-                    <!-- /form user info -->
-        </div>
-    </div>
+								<th scope="col">Detalles</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr *ngFor="let incidente of Incidencias; let i = index;">
+								<th scope="row">{{incidente.codIncidente}}</th>
+								<td>{{incidente.fecha}}</td>
+								<td>{{incidente.codEquipo}}</td>
+								<td>{{incidente.descripcion}}</td>
+								<!--<td>{{incidente.solucionado}}</td>-->
+                <td><div *ngIf="isValid; then templateName">
+    Here is never showing
 </div>
 
+<ng-template #templateName>
+    If isValid is true
+</ng-template></td>
+								<td><button type="button" class="btn btn-danger" (click)="borrarIncidencia(incidente)" >Eliminar</button>
+								</td>
+								<td><button type="button" class="btn btn-outline-success" (click)="incidenciaDetalles(incidente)">ver detalles</button>
+								</td>
+							</tr>
+
+						</tbody>
+					</table>
 
 
-
+				</div>
+			</div>
+			<!-- /form user info -->
+		</div>
+	</div>
+</div>
