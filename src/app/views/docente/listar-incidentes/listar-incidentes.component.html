@@ -15,7 +15,9 @@
                                   <th scope="col">Fecha</th>
                                   <th scope="col">Cod Equipo</th>
                                   <th scope="col">Descripci&oacute;n</th>
+                                  <th scope="col">Estado</th>
                                  <th scope="col">Eliminar</th>
+                                
                                    <th scope="col">Detalles</th>
                                 </tr>
                               </thead>
@@ -25,7 +27,7 @@
                                   <td>{{incidente.fecha}}</td>
                                   <td>{{incidente.codEquipo}}</td>
                                   <td>{{incidente.descripcion}}</td>
-                                
+                                <td>{{incidente.descripcion}}</td>
                                   <td><button type="button" class="btn btn-danger" (click)="borrarIncidencia(incidente)" >Eliminar</button></td>
                                   <td><button type="button" class="btn btn-outline-success" (click)="incidenciaDetalles(incidente)">ver detalles</button></td>
                                 </tr>
