@@ -1,90 +1,102 @@
-import { Injectable } from '@angular/core';
-import { HttpClient, HttpHeaders,HttpErrorResponse  } from '@angular/common/http';
-import { IncidenteInterface } from '../models/incidente';
-
-import { Observable, throwError,BehaviorSubject } from 'rxjs';
-import { retry, catchError } from 'rxjs/operators';
-import { map } from 'rxjs/operators';
+import { Injectable } from "@angular/core";
+import {
+  HttpClient,
+  HttpHeaders,
+  HttpErrorResponse
+} from "@angular/common/http";
+import { IncidenteInterface } from "../models/incidente";
+import { EquipoAsignadoInterface } from "../models/equipoasignado";
+import { Observable, throwError, BehaviorSubject } from "rxjs";
+import { retry, catchError } from "rxjs/operators";
+import { map } from "rxjs/operators";
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: "root"
 })
 export class IncidenciaService {
-
-apiURL = 'https://projectlab6.herokuapp.com/incidente/';
- httpOptions = {
+  apiURL = "https://projectlab6.herokuapp.com/incidente/";
+  apiURL2 = "https://projectlab6.herokuapp.com/tarea/EquiposAsignados";
+  httpOptions = {
     headers: new HttpHeaders({
-      'Content-Type': 'application/json'
+      "Content-Type": "application/json"
     })
-  }  
-   public Incidencias: Observable<IncidenteInterface[]>;
-   
-  private codEquipoMensaje = new BehaviorSubject('');
-  codActualEquipo=this.codEquipoMensaje.asObservable();
+  };
+  public Incidencias: Observable<IncidenteInterface[]>;
+  public EquiposAsignados: Observable<EquipoAsignadoInterface[]>;
+  private codEquipoMensaje = new BehaviorSubject("");
+  codActualEquipo = this.codEquipoMensaje.asObservable();
   codEquipo(message: string) {
-    this.codEquipoMensaje.next(message)
+    this.codEquipoMensaje.next(message);
   }
-constructor(private http: HttpClient) { this.Incidencias=null; }
-  
-//===================obtener incidencias para un tecnico================
+  constructor(private http: HttpClient) {
+    this.Incidencias = null;
+  }
+
+  //===================obtener incidencias para un tecnico================
   getIncidencias(): Observable<any> {
-	
-    return this.Incidencias= this.http.get(this.apiURL).pipe(
+    return (this.Incidencias = this.http.get(this.apiURL).pipe(
       map(this.extractData),
       catchError(this.handleError)
-    );
+    ));
+  }
+
+  getEquiposAsignados(): Observable<any> {
+    return (this.EquiposAsignados = this.http.get(this.apiURL2).pipe(
+      map(this.extractData),
+      catchError(this.handleError)
+    ));
   }
   //==============obtener una unica incidencia==========================
-  getIncidencia(id:string): Observable<any>  {
-	
-    return this.http.get(this.apiURL +'/editar/'+ id).pipe(
+  getIncidencia(id: string): Observable<any> {
+    return this.http.get(this.apiURL + "/editar/" + id).pipe(
       map(this.extractData),
       catchError(this.handleError)
     );
   }
   //================agregar incidencia===========================
-   agregarIncidencia(incidencia: any): Observable<any> {
-    return this.http.post<IncidenteInterface>(this.apiURL+'/insertar', incidencia).pipe(
-       catchError(this.handleError)
-    );
+  agregarIncidencia(incidencia: any): Observable<any> {
+    return this.http
+      .post<IncidenteInterface>(this.apiURL + "/insertar", incidencia)
+      .pipe(catchError(this.handleError));
   }
-   //===================actualizar incidencia	=====================
-  actualizarIncidencia(idIncidencia, incidencia	): Observable<any> {
-   console.log(this.apiURL+'/editar/'+idIncidencia);
-    return this.http.put<IncidenteInterface>(this.apiURL+'/editar/'+idIncidencia, JSON.stringify(incidencia	),this.httpOptions).pipe(
-
-     catchError(this.handleError)
-    );
+  //===================actualizar incidencia	=====================
+  actualizarIncidencia(idIncidencia, incidencia): Observable<any> {
+    console.log(this.apiURL + "/editar/" + idIncidencia);
+    return this.http
+      .put<IncidenteInterface>(
+        this.apiURL + "/editar/" + idIncidencia,
+        JSON.stringify(incidencia),
+        this.httpOptions
+      )
+      .pipe(catchError(this.handleError));
   }
-//===================borrar incidencia	=====================
+  //===================borrar incidencia	=====================
   borrarIncidencia(id) {
-  
-    return this.http.delete<IncidenteInterface>(this.apiURL+'/eliminar/'+id).pipe(
-      catchError(this.errorHandler)
-    )
+    return this.http
+      .delete<IncidenteInterface>(this.apiURL + "/eliminar/" + id)
+      .pipe(catchError(this.errorHandler));
   }
-   private extractData(res: Response): any {
+  private extractData(res: Response): any {
     const body = res;
-    return body || { };
+    return body || {};
   }
-errorHandler(error) {
-    let errorMessage = '';
-    if(error.error instanceof ErrorEvent) {
+  errorHandler(error) {
+    let errorMessage = "";
+    if (error.error instanceof ErrorEvent) {
       errorMessage = error.error.message;
     } else {
       errorMessage = `Error Code: ${error.status}\nMessage: ${error.message}`;
     }
     return throwError(errorMessage);
- }
+  }
   private handleError(error: HttpErrorResponse): any {
     if (error.error instanceof ErrorEvent) {
-      console.error('An error occurred:', error.error.message);
+      console.error("An error occurred:", error.error.message);
     } else {
       console.error(
-        `Backend returned code ${error.status}, ` +
-        `body was: ${error.error}`);
+        `Backend returned code ${error.status}, ` + `body was: ${error.error}`
+      );
     }
-    return throwError(
-      'Something bad happened; please try again later.');
+    return throwError("Something bad happened; please try again later.");
   }
 }
