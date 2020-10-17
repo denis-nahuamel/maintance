@@ -37,7 +37,7 @@ export class AsignarcargafinComponent implements OnInit {
     );
     this.personalService
       .getTecnico(this.idTecnico)
-      .subscribe((data: PersonalInterface) => (this.tecnico = { ...data }));
+      .subscribe((data: EquipoAsignadoInterface) => (this.tecnico = { ...data }));
     this.loadEquipo();
     this.fetchSelectedItems();
     this.fetchCheckedIDs();
@@ -66,7 +66,7 @@ export class AsignarcargafinComponent implements OnInit {
   }
 
   fetchCheckedIDs() {
-   // this.checkedIDs = [];
+    this.checkedIDs = [];
     this.Equipos.forEach((value, index) => {
       if (value.checked) {
         this.checkedIDs.push(value.id);
@@ -75,5 +75,6 @@ export class AsignarcargafinComponent implements OnInit {
   }
   asignarCarga() {
     console.log(this.tecnico.dni);
+    //ete es n neuvo coment
   }
 }
