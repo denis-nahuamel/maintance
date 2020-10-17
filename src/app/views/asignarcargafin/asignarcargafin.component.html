@@ -7,7 +7,7 @@
 					<h4 class="mb-0">Equipos no asignados</h4>
 				</div>
 				<div class="card-body">
-					<label style="background-color: #F0F0F0"><strong>Personal seleccionado:</strong> {{nombreTecnico}}</label>
+					<label style="background-color: #F0F0F0"><strong>Personal seleccionado:</strong> {{tecnico.Nombres}}</label>
 					<table class="table">
 						<thead class="thead-dark">
 							<tr>
@@ -56,7 +56,7 @@
 						<label class="col-lg-3 col-form-label form-control-label"></label>
 						<div class="col-lg-9">
 							<input type="reset" class="btn btn-secondary" value="Atr&aacute;s">
-							<input type="button" class="btn btn-primary" value="Asignar" (click)="asignarCarga(tecnico)">
+							<input type="button" class="btn btn-primary" value="Asignar" (click)="asignarCarga()">
                                     </div>
 						</div>
 
