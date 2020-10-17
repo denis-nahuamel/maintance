@@ -26,9 +26,10 @@ export class TecnicoService {
   //===================================
   private OTecnico = new BehaviorSubject<any>("");
   tecnicoActual = this.OTecnico.asObservable();
-  tecnicoSeleccionado(message: TecnicoInterface) {
+  tecnicoSeleccionado(message: EquipoAsignadoInterface) {
     this.OTecnico.next(message);
   }
+
   private messageSource = new BehaviorSubject("");
   currentMessage = this.messageSource.asObservable(); //este se consume
 

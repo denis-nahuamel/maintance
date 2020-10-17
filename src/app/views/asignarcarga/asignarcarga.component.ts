@@ -1,5 +1,6 @@
 import { Component, OnInit } from "@angular/core";
 import { TecnicoInterface } from "../../models/tecnico";
+import { EquipoAsignadoInterface } from "../../models/equipoasignado";
 import { TecnicoService } from "../../services/tecnico.service";
 import {
   FormBuilder,
@@ -33,14 +34,14 @@ export class AsignarcargaComponent implements OnInit {
   }
 
   loadTecnicos() {
-    return this.tecnicoService
-      .getEquiposAsignados()
-      .subscribe((data: {}) => {
-        this.Tecnicos = data;
-      });
+    return this.tecnicoService.getEquiposAsignados().subscribe((data: {}) => {
+      this.Tecnicos = data;
+    });
   }
-  getTecnico(tecnico: TecnicoInterface) {
+  getTecnico(tecnico: EquipoAsignadoInterface) {
+     console.log("tecnico");
     this.tecnicoService.tecnicoSeleccionado(tecnico);
+    console.log("tecnico");
     this.router.navigate(["asignar-carga/" + tecnico.dni]);
   }
 
