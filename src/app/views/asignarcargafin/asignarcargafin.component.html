@@ -19,11 +19,11 @@
 						</thead>
 						<tbody>
 							<tr *ngFor="let equipo of Equipos; let i = index;">
-								<th scope="row">{{equipo.codEquipo}}</th>
+								<th scope="row">{{equipo.Equipo}}</th>
 								<td>{{equipo.ubicacion}}</td>
-								<td>{{equipo.descripcion}}</td>
+								<td>{{equipo.problema}}</td>
 								<td>
-									<input type="checkbox" class="btn btn-primary" [(ngModel)]="equipo.checked" (change)="changeSelection()">
+									<input type="checkbox" class="btn btn-primary" [(ngModel)]="equipo.dni" (change)="changeSelection()">
 
 
                                   </td>
@@ -32,7 +32,7 @@
                                   <th scope="row">2</th>
                                   <td>Laboratorio 3 </td>
                                   <td>PC-4</td>
-                                  <td> 
+                                  <td>
                                     <div class="custom-control custom-checkbox">
                                           <input type="checkbox" class="custom-control-input" id="defaultUnchecked2">
                                           <label class="custom-control-label" for="defaultUnchecked2"></label>
@@ -55,7 +55,7 @@
 					<div class="form-group row">
 						<label class="col-lg-3 col-form-label form-control-label"></label>
 						<div class="col-lg-9">
-							<input type="reset" class="btn btn-secondary" value="Atr&aacute;s">
+							<input type="reset" class="btn btn-secondary" value="Atr&aacute;s" onclick="irAtras()">
 							<input type="button" class="btn btn-primary" value="Asignar" (click)="asignarCarga()">
                                     </div>
 						</div>

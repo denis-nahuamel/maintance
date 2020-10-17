@@ -20,6 +20,7 @@ export class AsignarcargafinComponent implements OnInit {
   selectedItemsList = [];
   checkedIDs = [];
   nombreTecnico: string;
+  enviarCarga=new Array();
   constructor(
     private activatedRoute: ActivatedRoute,
     private personalService: PersonalService,
@@ -42,14 +43,9 @@ export class AsignarcargafinComponent implements OnInit {
     this.fetchSelectedItems();
     this.fetchCheckedIDs();
   }
-  /*datosTecnico(){
-  	 return this.personalService.getTecnico(this.idTecnico).subscribe((data: {}) => {
-    	//console.log("load",data);
-      this.tecnico = data;
-    })
-  }*/
+
   loadEquipo() {
-    return this.equipoService.getEquipos().subscribe((data: {}) => {
+    return this.equipoService.getEquiposNoAsignados(this.tecnico.dni).subscribe((data: {}) => {
       console.log(data);
       this.Equipos = data;
     });
@@ -74,7 +70,16 @@ export class AsignarcargafinComponent implements OnInit {
     });
   }
   asignarCarga() {
-    console.log(this.tecnico.dni);
-    console.log("now");
+
+    var enviarCargaTecnico = {
+    dni: this.tecnico.dni,
+
+    equipos: this.selectedItemsList
+    }
+    console.log(enviarCargaTecnico);
   }
+  irAtras(){
+  	this.router.navigate(['/asignar-carga']);
+  }
+
 }
