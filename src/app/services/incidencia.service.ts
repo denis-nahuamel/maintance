@@ -5,7 +5,7 @@ import {
   HttpErrorResponse
 } from "@angular/common/http";
 import { IncidenteInterface } from "../models/incidente";
-import { EquipoAsignadoInterface } from "../models/equipoasignado";
+
 import { Observable, throwError, BehaviorSubject } from "rxjs";
 import { retry, catchError } from "rxjs/operators";
 import { map } from "rxjs/operators";
@@ -15,14 +15,14 @@ import { map } from "rxjs/operators";
 })
 export class IncidenciaService {
   apiURL = "https://projectlab6.herokuapp.com/incidente/";
-  apiURL2 = "https://projectlab6.herokuapp.com/tarea/EquiposAsignados";
+  
   httpOptions = {
     headers: new HttpHeaders({
       "Content-Type": "application/json"
     })
   };
   public Incidencias: Observable<IncidenteInterface[]>;
-  public EquiposAsignados: Observable<EquipoAsignadoInterface[]>;
+ 
   private codEquipoMensaje = new BehaviorSubject("");
   codActualEquipo = this.codEquipoMensaje.asObservable();
   codEquipo(message: string) {
@@ -40,12 +40,7 @@ export class IncidenciaService {
     ));
   }
 
-  getEquiposAsignados(): Observable<any> {
-    return (this.EquiposAsignados = this.http.get(this.apiURL2).pipe(
-      map(this.extractData),
-      catchError(this.handleError)
-    ));
-  }
+ 
   //==============obtener una unica incidencia==========================
   getIncidencia(id: string): Observable<any> {
     return this.http.get(this.apiURL + "/editar/" + id).pipe(

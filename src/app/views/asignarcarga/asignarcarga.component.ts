@@ -34,7 +34,7 @@ export class AsignarcargaComponent implements OnInit {
 
   loadTecnicos() {
     return this.tecnicoService
-      .getTecnicosAsignados("2")
+      .getEquiposAsignados()
       .subscribe((data: {}) => {
         this.Tecnicos = data;
       });

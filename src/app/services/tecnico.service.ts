@@ -5,7 +5,7 @@ import {
   HttpErrorResponse
 } from "@angular/common/http";
 import { TecnicoInterface } from "../models/tecnico";
-
+import { EquipoAsignadoInterface } from "../models/equipoasignado";
 import { Observable, throwError, BehaviorSubject, Subject } from "rxjs";
 import { retry, catchError } from "rxjs/operators";
 import { map } from "rxjs/operators";
@@ -15,13 +15,14 @@ import { map } from "rxjs/operators";
 })
 export class TecnicoService {
   apiURL = "https://projectlab6.herokuapp.com/tecnico";
+  apiURL2 = "https://projectlab6.herokuapp.com/tarea/EquiposAsignados";
   httpOptions = {
     headers: new HttpHeaders({
       "Content-Type": "application/json"
     })
   };
   public Tecnico: Observable<TecnicoInterface[]>;
-
+  public EquiposAsignados: Observable<EquipoAsignadoInterface[]>;
   //===================================
   private OTecnico = new BehaviorSubject<any>("");
   tecnicoActual = this.OTecnico.asObservable();
@@ -51,6 +52,12 @@ export class TecnicoService {
       map(this.extractData),
       catchError(this.handleError)
     );
+  }
+  getEquiposAsignados(): Observable<any> {
+    return (this.EquiposAsignados = this.http.get(this.apiURL2).pipe(
+      map(this.extractData),
+      catchError(this.handleError)
+    ));
   }
   //======================Obtener un solo tecnico===============================
   getTecnico(id: string): Observable<any> {

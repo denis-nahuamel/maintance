@@ -11,7 +11,7 @@
 					<table class="table">
 						<thead class="thead-dark">
 							<tr>
-								<th scope="col">DNI</th>
+								<!--<th scope="col">DNI</th>-->
 								<th scope="col">Nombres</th>
 								<th scope="col">Apellidos</th>
 								<th scope="col">Seleccionar</th>
@@ -21,9 +21,9 @@
 
 							<tr *ngFor="let tecnico of Tecnicos; let i = index;let odd = odd"
 								[ngClass]="odd ? 'odd_col' : 'even_col'">
-								<th scope="row">{{tecnico.dni}}</th>
-								<td>{{tecnico.nombre}}</td>
-								<td>{{tecnico.apellidos}}</td>
+								<!--	<th scope="row">{{tecnico.dni}}</th>-->
+								<td>{{tecnico.Nombres}}</td>
+								<td>{{tecnico.EquiposAsignados}}</td>
 								<td>
 
 
