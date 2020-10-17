@@ -75,5 +75,6 @@ export class AsignarcargafinComponent implements OnInit {
   }
   asignarCarga() {
     console.log(this.tecnico.dni);
+    //ete es n neuvo coment
   }
 }
