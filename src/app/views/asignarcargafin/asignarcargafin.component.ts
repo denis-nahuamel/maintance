@@ -1,6 +1,6 @@
 import { Component, OnInit } from "@angular/core";
 import { ActivatedRoute, Router } from "@angular/router";
-import { PersonalInterface } from "../../models/equipoasignado";
+import { EquipoAsignadoInterface } from "../../models/equipoasignado";
 import { EquipoInterface } from "../../models/equipo";
 import { PersonalService } from "../../services/personal.service";
 import { EquiposService } from "../../services/equipos.service";
@@ -37,7 +37,7 @@ export class AsignarcargafinComponent implements OnInit {
     );
     this.personalService
       .getTecnico(this.idTecnico)
-      .subscribe((data: PersonalInterface) => (this.tecnico = { ...data }));
+      .subscribe((data: EquipoAsignadoInterface) => (this.tecnico = { ...data }));
     this.loadEquipo();
     this.fetchSelectedItems();
     this.fetchCheckedIDs();
@@ -66,7 +66,7 @@ export class AsignarcargafinComponent implements OnInit {
   }
 
   fetchCheckedIDs() {
-   // this.checkedIDs = [];
+    this.checkedIDs = [];
     this.Equipos.forEach((value, index) => {
       if (value.checked) {
         this.checkedIDs.push(value.id);
