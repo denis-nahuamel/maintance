@@ -66,7 +66,7 @@ export class AsignarcargafinComponent implements OnInit {
   }
 
   fetchCheckedIDs() {
-    this.checkedIDs = [];
+   // this.checkedIDs = [];
     this.Equipos.forEach((value, index) => {
       if (value.checked) {
         this.checkedIDs.push(value.id);
@@ -75,6 +75,6 @@ export class AsignarcargafinComponent implements OnInit {
   }
   asignarCarga() {
     console.log(this.tecnico.dni);
-    //ete es n neuvo coment
+    console.log("now");
   }
 }
