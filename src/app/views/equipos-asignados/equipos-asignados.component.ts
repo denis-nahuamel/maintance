@@ -23,14 +23,14 @@ export class EquiposAsignadosComponent implements OnInit {
   }
 
   cargarEquipos() {
-  	
-    return this.equipoService.getEquiposAsignados("2").subscribe((data: {}) => {
+
+    return this.equipoService.getEquiposAsignados("70123123").subscribe((data: {}) => {
     	console.log("load",data);
       this.Equipos = data;
     })
   }
     equipoDetalles(equipo:EquipoInterface){
       console.log("hellooo");
-       this.router.navigate(['equipos-asignados/'+equipo.codEquipo]);  
+       this.router.navigate(['equipos-asignados/'+equipo.codEquipo]);
   }
 }

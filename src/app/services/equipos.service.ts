@@ -10,7 +10,7 @@ import { map } from 'rxjs/operators';
   providedIn: 'root'
 })
 export class EquiposService {
-apiURL = 'https://projectlab6.herokuapp.com/equipo';
+apiURL = 'https://projectlab6.herokuapp.com/tarea/equiposnoasignados/';
 apiURL2 = 'https://projectlab6.herokuapp.com/tarea/EquiposNoAsignados/';
  httpOptions = {
     headers: new HttpHeaders({
@@ -29,7 +29,7 @@ constructor(private http: HttpClient) { }
 
 getEquiposAsignados(id:string): Observable<any>  {
 
-    return this.http.get(this.apiURL).pipe(
+    return this.http.get(this.apiURL+id).pipe(
       map(this.extractData),
       catchError(this.handleError)
     );

@@ -10,7 +10,7 @@
                             <table class="table">
                               <thead class="thead-dark">
                                 <tr>
-                                  <th scope="col">#</th>
+
                                   <th scope="col">Laboratorio</th>
                                   <th scope="col">Equipo</th>
                                   <th scope="col">Ver</th>
@@ -18,16 +18,16 @@
                               </thead>
                               <tbody>
                                 <tr *ngFor="let equipo of Equipos; let i = index;">
-                                  <th scope="row">1</th>
-                                  <td>Laboratorio 6</td>
-                                  <td>PC-4</td>
+
+                                  <td>{{equipo.ubicacion}}</td>
+                                  <td>{{equipo.Equipo}}</td>
                                   <td><button type="button" class="btn btn-outline-success" (click)="equipoDetalles(equipo)">ver detalles</button></td>
                                 </tr>
-                                
+
                               </tbody>
                             </table>
 
-                          
+
                         </div>
                     </div>
                     <!-- /form user info -->
