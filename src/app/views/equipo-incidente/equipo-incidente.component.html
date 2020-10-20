@@ -11,13 +11,14 @@
                                 <div class="form-group row">
                                     <label class="col-lg-3 col-form-label form-control-label">Fecha</label>
                                     <div class="col-lg-9">
-                                         <input class="form-control"  formControlName="fechaLimite" type="text"  placeholder="date" value="12/05/2020" readonly="true">
+                                         <input class="form-control"  formControlName="fechaLimite" type="text"  placeholder="date" value="{{Equipo.fecha}}" readonly="true">
                                     </div>
                                 </div>
                                 <div class="form-group row">
                                     <label class="col-lg-3 col-form-label form-control-label">Descripci&oacute;n</label>
                                     <div class="col-lg-9">
-                                        <textarea    cols="47" rows="8" class="input1" aria-invalid="false" readonly="true" value="Pantalla azul">Pantalla azul, mensaje de problema del disco duro</textarea>
+                                        <textarea    cols="47" rows="8" class="input1" aria-invalid="false" readonly="true" value="Pantalla azul">
+                                        {{Equipo.descripcion}}</textarea>
                                     </div>
                                 </div>
                                 <div class="form-group row">
@@ -29,11 +30,11 @@
                                 <div class="form-group row">
                                     <label class="col-lg-3 col-form-label form-control-label">Equipo</label>
                                     <div class="col-lg-9">
-                                        <input class="form-control" type="text" value="PC-07" readonly="true">
+                                        <input class="form-control" type="text" value="{{Equipo.codEquipo}}" readonly="true">
                                     </div>
                                 </div>
-                               
-                               
+
+
                                 <div class="form-group row">
                                     <label class="col-lg-3 col-form-label form-control-label"></label>
                                     <div class="col-lg-9">

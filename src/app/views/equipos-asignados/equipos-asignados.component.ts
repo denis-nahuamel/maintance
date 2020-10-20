@@ -29,8 +29,8 @@ export class EquiposAsignadosComponent implements OnInit {
       this.Equipos = data;
     })
   }
-    equipoDetalles(equipo:EquipoInterface){
-      console.log("hellooo");
-       this.router.navigate(['equipos-asignados/'+equipo.codEquipo]);
+    equipoDetalles(equipo){
+      console.log("he"+equipo);
+       this.router.navigate(['equipos-asignados/'+equipo.codIncidente]);
   }
 }
