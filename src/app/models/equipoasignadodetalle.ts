@@ -4,4 +4,5 @@
         Problema: string;
         codIncidente: string;
         dni: string;
+          checked?: boolean;
     }

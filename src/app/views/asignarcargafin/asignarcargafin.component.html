@@ -11,22 +11,22 @@
 					<table class="table">
 						<thead class="thead-dark">
 							<tr>
-								<th scope="col">#</th>
+								<th scope="col">Equipo</th>
 								<th scope="col">Ubicaci&oacute;n</th>
-								<th scope="col">Descripci&oacute;n</th>
+								<th scope="col">Problema</th>
 								<th scope="col">Seleccionar</th>
 							</tr>
 						</thead>
 						<tbody>
 							<tr *ngFor="let equipo of Equipos; let i = index;">
-								<th scope="row">{{equipo.Equipo}}</th>
+								<th scope="row">{{equipo.equipo}}</th>
 								<td>{{equipo.ubicacion}}</td>
 								<td>{{equipo.problema}}</td>
 								<td>
 									<input type="checkbox" class="btn btn-primary" [(ngModel)]="equipo.dni" (change)="changeSelection()">
 
 
-                                  </td>
+                </td>
 							</tr>
 							<!--    <tr>
                                   <th scope="row">2</th>

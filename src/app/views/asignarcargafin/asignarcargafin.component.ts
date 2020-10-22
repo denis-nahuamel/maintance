@@ -45,11 +45,14 @@ export class AsignarcargafinComponent implements OnInit {
   }
 
   loadEquipo() {
-    return this.equipoService.getEquiposNoAsignados(this.tecnico.dni).subscribe((data: {}) => {
-      console.log(data);
+    //return this.equipoService.getEquiposNoAsignados(this.tecnico.dni).subscribe((data: {}) => {
+      return this.equipoService.getEquiposNoAsignados("70123123").subscribe((data: {}) => {
+     // console.log(data);
       this.Equipos = data;
     });
-  }
+    console.log(this.Equipos);
+ // }
+}
   changeSelection() {
     this.fetchSelectedItems();
   }
@@ -69,14 +72,29 @@ export class AsignarcargafinComponent implements OnInit {
       }
     });
   }
+  convertDateFormat(string) {
+    var info = string.split("-");
+    return info[0] + "-" + info[1] + "-" + info[2];
+  }
   asignarCarga() {
+        let cargaTecnico = [];
+       /* for (let index of this.Equipos) {
+         if(this.Equipos[index].dni){
 
-    var enviarCargaTecnico = {
-    dni: this.tecnico.dni,
+              cargaTecnico.push({
+                                fecha:this.Equipos[index].fecha,
+                                dni:this.Equipos[index].dni,
 
-    equipos: this.selectedItemsList
-    }
-    console.log(enviarCargaTecnico);
+                                codJefe:"799768999",
+                                codIncidente: this.Equipos[index].codIncidente
+                                });
+
+         }*/
+         console.log(this.Equipos);
+
+       // }
+
+    console.log(cargaTecnico);
   }
   irAtras(){
   	this.router.navigate(['/asignar-carga']);

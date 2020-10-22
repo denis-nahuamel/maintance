@@ -42,7 +42,8 @@ export class AsignarcargaComponent implements OnInit {
      console.log("tecnico");
     this.tecnicoService.tecnicoSeleccionado(tecnico);
     console.log("tecnico");
-    this.router.navigate(["asignar-carga/" + tecnico.dni]);
+   // this.router.navigate(["asignar-carga/" + tecnico.dni]);
+   this.router.navigate(["asignar-carga/70123123"]);
   }
 
   checkAllCheckBox(ev) {
