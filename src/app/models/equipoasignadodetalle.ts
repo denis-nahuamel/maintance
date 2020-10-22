@@ -1,7 +1,7 @@
   export interface EquipoAsignadoDetalleInterface {
         ubicacion: string;
-        Equipo: string;
-        Problema: string;
+        equipo: string;
+        problema: string;
         codIncidente: string;
         dni: string;
           checked?: boolean;

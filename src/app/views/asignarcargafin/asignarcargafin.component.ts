@@ -1,6 +1,7 @@
 import { Component, OnInit } from "@angular/core";
 import { ActivatedRoute, Router } from "@angular/router";
 import { EquipoAsignadoInterface } from "../../models/equipoasignado";
+import { EquipoAsignadoDetalleInterface } from "../../models/equipoasignadodetalle";
 import { EquipoInterface } from "../../models/equipo";
 import { PersonalService } from "../../services/personal.service";
 import { EquiposService } from "../../services/equipos.service";
@@ -19,6 +20,7 @@ export class AsignarcargafinComponent implements OnInit {
   Equipos: any = [];
   selectedItemsList = [];
   checkedIDs = [];
+  cargaTecnico=[];
   nombreTecnico: string;
   enviarCarga=new Array();
   constructor(
@@ -42,16 +44,19 @@ export class AsignarcargafinComponent implements OnInit {
     this.loadEquipo();
     this.fetchSelectedItems();
     this.fetchCheckedIDs();
+
   }
 
   loadEquipo() {
-    //return this.equipoService.getEquiposNoAsignados(this.tecnico.dni).subscribe((data: {}) => {
-      return this.equipoService.getEquiposNoAsignados("70123123").subscribe((data: {}) => {
-     // console.log(data);
+    return this.equipoService.getEquiposNoAsignados(this.tecnico.dni).subscribe((data: {}) => {
       this.Equipos = data;
+      this.Equipos.forEach((value, index) => {
+        if (value.dni) {
+          value.checked=true;
+        }
+      });
     });
-    console.log(this.Equipos);
- // }
+
 }
   changeSelection() {
     this.fetchSelectedItems();
@@ -77,24 +82,19 @@ export class AsignarcargafinComponent implements OnInit {
     return info[0] + "-" + info[1] + "-" + info[2];
   }
   asignarCarga() {
-        let cargaTecnico = [];
-       /* for (let index of this.Equipos) {
-         if(this.Equipos[index].dni){
-
-              cargaTecnico.push({
-                                fecha:this.Equipos[index].fecha,
-                                dni:this.Equipos[index].dni,
-
-                                codJefe:"799768999",
-                                codIncidente: this.Equipos[index].codIncidente
-                                });
-
-         }*/
-         console.log(this.Equipos);
-
-       // }
-
-    console.log(cargaTecnico);
+    console.log("rea",this.selectedItemsList);
+    var todo = {};
+      this.Equipos.forEach((value, index) => {
+      if (value.checked) {
+          var obj = {};
+          obj['codTarea'] = "1";
+          obj['dni'] = value.dni;
+          obj['codJefe'] = value.codJefe;
+          obj['codIncidente'] = value.codIncidente;
+          this.cargaTecnico.push(obj);
+      }
+    });
+    console.log("DADS"+JSON.stringify(this.cargaTecnico));
   }
   irAtras(){
   	this.router.navigate(['/asignar-carga']);
