@@ -15,14 +15,15 @@ import { map } from "rxjs/operators";
 })
 export class IncidenciaService {
   apiURL = "https://projectlab6.herokuapp.com/incidente/";
-  
+  apiInforme = "https://projectlab6.herokuapp.com/informe/";
+
   httpOptions = {
     headers: new HttpHeaders({
       "Content-Type": "application/json"
     })
   };
   public Incidencias: Observable<IncidenteInterface[]>;
- 
+
   private codEquipoMensaje = new BehaviorSubject("");
   codActualEquipo = this.codEquipoMensaje.asObservable();
   codEquipo(message: string) {
@@ -40,7 +41,7 @@ export class IncidenciaService {
     ));
   }
 
- 
+
   //==============obtener una unica incidencia==========================
   getIncidencia(id: string): Observable<any> {
     return this.http.get(this.apiURL + "/editar/" + id).pipe(
@@ -71,6 +72,20 @@ export class IncidenciaService {
       .delete<IncidenteInterface>(this.apiURL + "/eliminar/" + id)
       .pipe(catchError(this.errorHandler));
   }
+
+  //==============obtenerTarea===========================
+  obtenerInforme(id:string): Observable<any>  {
+
+    return this.http.get(this.apiInforme+'/editar/' + id).pipe(
+      map(this.extractData),
+      catchError(this.handleError)
+    );
+  }
+
+
+
+
+
   private extractData(res: Response): any {
     const body = res;
     return body || {};

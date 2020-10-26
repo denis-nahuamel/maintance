@@ -82,19 +82,23 @@ export class AsignarcargafinComponent implements OnInit {
     return info[0] + "-" + info[1] + "-" + info[2];
   }
   asignarCarga() {
-    console.log("rea",this.selectedItemsList);
+    console.log(this.selectedItemsList);
     var todo = {};
       this.Equipos.forEach((value, index) => {
       if (value.checked) {
           var obj = {};
-          obj['codTarea'] = "1";
+          obj['codTarea'] = value.codTarea;
           obj['dni'] = value.dni;
-          obj['codJefe'] = value.codJefe;
+          obj['codJefe'] = "DOC004";
           obj['codIncidente'] = value.codIncidente;
           this.cargaTecnico.push(obj);
       }
     });
-    console.log("DADS"+JSON.stringify(this.cargaTecnico));
+    this.tecnicoService.asignarCarga(this.cargaTecnico).subscribe(res => {
+         console.log('Se agrego con exito',res);
+
+    });
+    this.irAtras();
   }
   irAtras(){
   	this.router.navigate(['/asignar-carga']);

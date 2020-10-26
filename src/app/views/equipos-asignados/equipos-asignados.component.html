@@ -13,14 +13,16 @@
 
                                   <th scope="col">Laboratorio</th>
                                   <th scope="col">Equipo</th>
+                                   <th scope="col">Descripci&oacute;n</th>
                                   <th scope="col">Ver</th>
                                 </tr>
                               </thead>
                               <tbody>
-                                <tr *ngFor="let equipo of Equipos; let i = index;">
+                                <tr *ngFor="let equipo of Tareas; let i = index;">
 
                                   <td>{{equipo.ubicacion}}</td>
-                                  <td>{{equipo.Equipo}}</td>
+                                  <td>{{equipo.equipo}}</td>
+                                  <td>{{equipo.problema}}</td>
                                   <td><button type="button" class="btn btn-outline-success" (click)="equipoDetalles(equipo)">ver detalles</button></td>
                                 </tr>
 

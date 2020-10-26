@@ -16,6 +16,7 @@ import { map } from "rxjs/operators";
 export class TecnicoService {
   apiURL = "https://projectlab6.herokuapp.com/tecnico";
   apiURL2 = "https://projectlab6.herokuapp.com/tarea/EquiposAsignados";
+  apiURL3 = "https://projectlab6.herokuapp.com/tarea/insertar/";//para asignar carga de trabajo
   httpOptions = {
     headers: new HttpHeaders({
       "Content-Type": "application/json"
@@ -84,6 +85,12 @@ export class TecnicoService {
         this.httpOptions
       )
       .pipe(catchError(this.handleError));
+  }
+  asignarCarga(json: any): Observable<any> {
+    console.log("real",json);
+    return this.http.post(this.apiURL3 , json).pipe(
+      catchError(this.errorHandler)
+    );
   }
   //===================borrar tecnico=====================
   borrarTecnico(id) {

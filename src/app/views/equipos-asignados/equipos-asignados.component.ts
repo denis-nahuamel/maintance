@@ -14,10 +14,11 @@ export class EquiposAsignadosComponent implements OnInit {
 
   constructor(private activatedRoute: ActivatedRoute,private equipoService: EquiposService,
   				private formBuilder: FormBuilder, private router: Router) { }
-
- Equipos: any = [];
+  idTecnico:string;
+ Equipos: any = [];//todos los equipos
+ Tareas: any = [];//los equipos asignados al tecnico
   ngOnInit(): void {
-    //this.idTecnico = this.activatedRoute.snapshot.paramMap.get('id');//idgrado
+
     this.cargarEquipos();
 
   }
@@ -27,10 +28,16 @@ export class EquiposAsignadosComponent implements OnInit {
     return this.equipoService.getEquiposAsignados("70123123").subscribe((data: {}) => {
     	console.log("load",data);
       this.Equipos = data;
+      this.Equipos.forEach((value, index) => {
+      if (value.dni!=null) {//solo equipos asignados
+
+          this.Tareas.push(value);//agregar al arreglo tareas
+      }
+    });
     })
+
   }
     equipoDetalles(equipo){
-      console.log("he"+equipo);
-       this.router.navigate(['equipos-asignados/'+equipo.codIncidente]);
+       this.router.navigate(['equipos-asignados/'+equipo.codIncidente]);//equipo-mantenimiento
   }
 }

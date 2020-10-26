@@ -29,7 +29,7 @@ constructor(private http: HttpClient) { }
 
 getEquiposAsignados(id:string): Observable<any>  {
 
-    return this.http.get(this.apiURL+id).pipe(
+    return this.http.get(this.apiURL2+id).pipe(
       map(this.extractData),
       catchError(this.handleError)
     );
