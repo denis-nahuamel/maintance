@@ -13,8 +13,11 @@ import { AsignarcargafinComponent } from "./views/asignarcargafin/asignarcargafi
 import { EquiposAsignadosComponent } from "./views/equipos-asignados/equipos-asignados.component";
 import { EquipoIncidenteComponent } from "./views/equipo-incidente/equipo-incidente.component";
 import { RepuestosComponent } from "./views/repuestos/repuestos.component";
+
 import { EquipoMantenimientoComponent } from "./views/equipo-mantenimiento/equipo-mantenimiento.component";
+import { EquipoComponentesComponent } from "./views/equipo-mantenimiento/equipo-componentes/equipo-componentes.component";
 import { RegistrarIncidenciaComponent } from "./views/registrar-incidencia/registrar-incidencia.component";
+
 
 import { ListarDocenteComponent } from "./views/listar-docente/listar-docente.component";
 import { ListarIncidentesComponent } from "./views/docente/listar-incidentes/listar-incidentes.component";
@@ -116,7 +119,11 @@ export const routes: Routes = [
                 path: "mantenimiento",
                 component: EquipoMantenimientoComponent
               },
-              { path: "repuestos", component: RepuestosComponent }
+              { path: "repuestos", component: RepuestosComponent },
+              {
+                path: "componentes",
+                component: EquipoComponentesComponent
+              },
             ]
           }
         ]
@@ -263,7 +270,7 @@ export const routes: Routes = [
         loadChildren: () =>
           import("./views/widgets/widgets.module").then(m => m.WidgetsModule)
       }
-      
+
     ]
   },
   { path: "**", component: P404Component }

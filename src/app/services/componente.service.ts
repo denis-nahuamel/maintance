@@ -14,27 +14,36 @@ apiURL = 'https://projectlab6.herokuapp.com/componente';
     headers: new HttpHeaders({
       'Content-Type': 'application/json'
     })
-  }  
+  }
    public Componente: Observable<ComponenteInterface[]>;
- 
+
 
  private codEquipoMensaje = new BehaviorSubject('');
   codActualEquipo=this.codEquipoMensaje.asObservable();
   codEquipo(message: string) {
     this.codEquipoMensaje.next(message)
   }
+
+
 private messageSource = new BehaviorSubject('');
    currentMessage = this.messageSource.asObservable();
-  
+
  changeMessage(message: string) {
     this.messageSource.next(message)
-  } 
-  
+  }
+//=================nombre componente malogrado============
+  private mensajeComponente = new BehaviorSubject('');
+   nombreComponenteActual = this.mensajeComponente.asObservable();
+
+ cambiarNombreComponente(message: string) {
+    this.mensajeComponente.next(message)
+  }
+
 
 constructor(private http: HttpClient) { }
-  
+
 getComponentesAsignados(id:string): Observable<any>  {
-	
+
     return this.http.get('https://jsonplaceholder.typicode.com/todos/').pipe(
       map(this.extractData),
       catchError(this.handleError)
@@ -42,7 +51,7 @@ getComponentesAsignados(id:string): Observable<any>  {
   }
   //===================================================
    getComponentes(): Observable<any>  {
-  
+
     return this.http.get(this.apiURL).pipe(
       map(this.extractData),
       catchError(this.handleError)
@@ -50,7 +59,7 @@ getComponentesAsignados(id:string): Observable<any>  {
   }
 //======================Obtener un solo componente===============================
  getComponente(id:string): Observable<any>  {
-  
+
     return this.http.get(this.apiURL+'/editar/' + id).pipe(
       map(this.extractData),
       catchError(this.handleError)
@@ -73,7 +82,7 @@ getComponentesAsignados(id:string): Observable<any>  {
   }
 //===================borrar componente=====================
   borrarComponente(id) {
-  
+
     return this.http.delete<ComponenteInterface>(this.apiURL+'/eliminar/'+id).pipe(
       catchError(this.errorHandler)
     )

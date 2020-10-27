@@ -13,9 +13,11 @@ import { ActivatedRoute, Router } from '@angular/router';
 })
 export class EquipoMantenimientoComponent implements OnInit {
 	public idIncidente=null;
-  public nombreRepuesto="";
-  message:string;
+  public componenteAlmacen="";//nombre del componente seleccionado
+  message:any;
   Equipo:any;
+  ComponenteAlmacen:any;//componente que se selecciono del almacen
+  ComponenteEquipo:any;//componente del equipo que va a ser retirado
   constructor(private repuestosService:RepuestosService,
     private activatedRoute: ActivatedRoute,
     private formBuilder: FormBuilder, private router: Router,private incidenteService: IncidenciaService) {
@@ -23,8 +25,9 @@ export class EquipoMantenimientoComponent implements OnInit {
   }
 
   ngOnInit(): void {
-     this.repuestosService.currentMessage.subscribe(message => this.nombreRepuesto = message)
-  	this.idIncidente = this.activatedRoute.snapshot.paramMap.get('id');//i
+     this.repuestosService.currentMessage.subscribe(message => this.ComponenteAlmacen= message)
+    this.idIncidente = this.activatedRoute.snapshot.paramMap.get('id');//i
+    this.componenteAlmacen=this.ComponenteAlmacen.catalogo
   }
   getIncidente(){
       this.incidenteService.obtenerInforme(this.idIncidente).subscribe((data: {}) => {
@@ -32,7 +35,11 @@ export class EquipoMantenimientoComponent implements OnInit {
       this.Equipo = data;
     });
   }
+  //============obtener componente que va a ser reemplazado
+  obtenerComponente(){
+     this.router.navigate(['equipos-asignados/'+this.idIncidente+'/componentes']);//equipo-mantenimiento/equipo-componentes
+  }
 getRepuestos(){
-  	   this.router.navigate(['equipos-asignados/'+this.idIncidente+'/repuestos']);
+  	   this.router.navigate(['equipos-asignados/'+this.idIncidente+'/repuestos']);//repuestos
   }
 }

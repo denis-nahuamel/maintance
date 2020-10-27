@@ -12,7 +12,7 @@ import { IncidenciaService } from "../../services/incidencia.service";
   styleUrls: ['./equipo-incidente.component.css']
 })
 export class EquipoIncidenteComponent implements OnInit {
-  public idEquipo=null;
+  public codIncidente=null;
   Equipo:any;
  public formDetalles = new FormGroup({
     fechaLimite: new FormControl('', Validators.required),
@@ -26,16 +26,16 @@ export class EquipoIncidenteComponent implements OnInit {
 
 
   ngOnInit(): void {
-    this.idEquipo = this.activatedRoute.snapshot.paramMap.get('id');//i
-    this.getIncidente();
+    this.codIncidente = this.activatedRoute.snapshot.paramMap.get('id');//i
+    this.obtenerInforme();
   }
-   getIncidente(){
-      this.incidenteService.getIncidencia(this.idEquipo).subscribe((data: {}) => {
+   obtenerInforme(){
+      this.incidenteService.obtenerInforme(this.codIncidente).subscribe((data: {}) => {
     	console.log("load",data);
       this.Equipo = data;
     });
   }
 irMantenimiento(){
-  	   this.router.navigate(['equipos-asignados/'+this.idEquipo+'/mantenimiento']);
+  	   this.router.navigate(['equipos-asignados/'+this.codIncidente+'/mantenimiento']);//equipo-mantenimiento
   }
 }

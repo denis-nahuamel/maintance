@@ -8,9 +8,9 @@
                         </div>
                         <div class="card-body">
                             <form class="form" role="form" autocomplete="off">
-                               
-                               
-                               
+
+
+
                                 <div class="form-group row">
                                     <label class="col-lg-3 col-form-label form-control-label">Equipo</label>
                                     <div class="col-lg-9">
@@ -23,13 +23,13 @@
                                      <div class="col-lg-9">
                                     <div class="custom-control custom-radio custom-control-inline">
                                       <input type="radio" class="custom-control-input" id="defaultInline1" name="inlineDefaultRadiosExample">
-                                      <label class="custom-control-label" for="defaultInline1">Activo</label>
+                                      <label class="custom-control-label" for="defaultInline1">Operativo</label>
                                     </div>
 
                                     <!-- Default inline 2-->
                                     <div class="custom-control custom-radio custom-control-inline">
                                       <input type="radio" class="custom-control-input" id="defaultInline2" name="inlineDefaultRadiosExample">
-                                      <label class="custom-control-label" for="defaultInline2">Inactivo</label>
+                                      <label class="custom-control-label" for="defaultInline2">Inoperativo</label>
                                     </div>
                                     </div>
 
@@ -49,19 +49,32 @@
                                       <label class="custom-control-label" for="defaultInline4">Software</label>
                                     </div>
                                     </div>
-                                    
-                               </div>    
-                               <!--Ver repuestos-->    
+
+                               </div>
+                               <!--Ver componentes-->
                                 <div class="form-group row">
-                                    <label class="col-lg-3 col-form-label form-control-label">Repuesto</label>
+                                    <label class="col-lg-3 col-form-label form-control-label">Componente Equipo</label>
                                     <div class="col-lg-7">
-                                         <input class="form-control" type="text" value="{{nombreRepuesto}}" readonly="true">  
+                                         <input class="form-control" type="text" value="{{componenteEquipo}}" readonly="true">
+                                         <span>*Escoger un componente si va a ser reemplazado</span>
                                     </div>
                                     <div class="col-lg-2">
-                                         
+
+                                        <input type="button" (click)="obtenerComponente()" class="btn btn-primary" value="Buscar">
+                                    </div>
+                                </div>
+                               <!--Ver repuestos-->
+                                <div class="form-group row">
+                                    <label class="col-lg-3 col-form-label form-control-label">Componente Almacen</label>
+                                    <div class="col-lg-7">
+                                         <input class="form-control" type="text" value="{{componenteAlmacen}}" readonly="true">
+                                    </div>
+                                    <div class="col-lg-2">
+
                                         <input type="button" (click)="getRepuestos()" class="btn btn-primary" value="Buscar">
                                     </div>
                                 </div>
+
                                 <!--Descripcion-->
                                 <div class="form-group row">
                                     <label class="col-lg-3 col-form-label form-control-label">Detalles adicionales</label>

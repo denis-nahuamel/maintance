@@ -4,7 +4,7 @@
                     <!-- form user info -->
                     <div class="card">
                         <div class="card-header">
-                            <h4 class="mb-0">Escoger Repuesto</h4>
+                            <h4 class="mb-0">Escoger Componente</h4>
                         </div>
                         <div class="card-body">
                           <div class="form-group">
@@ -13,19 +13,19 @@
                             <table class="table">
                               <thead class="thead-dark">
                                 <tr>
-                                  <th scope="col">C&oacute;digo</th>
+                                  <th scope="col">#</th>
                                   <th scope="col">Nombre</th>
-                                  <th scope="col">Estado</th>
-
+                                  <th scope="col">Repuestos buenos</th>
+                                  <th scope="col">Repuestos malogrados</th>
                                   <th scope="col">Seleccionar</th>
                                 </tr>
                               </thead>
                               <tbody>
                                 <tr *ngFor="let repuesto of Repuestos | filter:term; let i = index;">
-                                  <th scope="row">{{repuesto.codComponente}}</th>
-                                  <td>{{repuesto.catalogo}}</td>
-                                  <td>{{repuesto.estado}}</td>
-
+                                  <th scope="row">1</th>
+                                  <td>{{repuesto.title}}</td>
+                                  <td>4</td>
+                                  <td>2</td>
                                   <td>  <input type="checkbox" class="btn btn-primary" [(ngModel)]="repuesto.checked" (change)="changeSelection()"></td>
                                 </tr>
 
@@ -45,4 +45,5 @@
         </div>
     </div>
 </div>
+
 

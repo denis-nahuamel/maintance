@@ -18,9 +18,11 @@ selectedItemsList = [];
   checkedIDs = [];
    message:string;
   public idEquipo=null;
-  constructor(private activatedRoute: ActivatedRoute,private repuestosService: RepuestosService,private formBuilder: FormBuilder, 
+  constructor(private activatedRoute: ActivatedRoute,
+    private repuestosService: RepuestosService,
+    private formBuilder: FormBuilder,
   			private router: Router) {
-  
+
   }
 
   ngOnInit(): void {
@@ -32,21 +34,20 @@ selectedItemsList = [];
   }
 
   loadRepuestos() {
-  	
+
     return this.repuestosService.getRepuestos().subscribe((data: {}) => {
-    
+
       this.Repuestos = data;
     })
   }
   getTecnico(Repuestos:RepuestoInterface){
-  	   this.router.navigate(['asignar-carga/'+Repuestos.id]);  
+  	   this.router.navigate(['asignar-carga/'+Repuestos.id]);
   }
 
   nombreRepuesto(){
-  	//console.log("eqyui",this.selectedItemsList[0].title);
-  	//this.repuestosService.nombreRepuesto=this.selectedItemsList[0].title;
-  	  this.repuestosService.changeMessage(this.selectedItemsList[0].title);
-  	   this.router.navigate(['equipos-asignados/'+this.idEquipo+'/mantenimiento']);  
+
+  	  this.repuestosService.changeMessage(this.selectedItemsList[0]);
+  	   this.router.navigate(['equipos-asignados/'+this.idEquipo+'/mantenimiento']);
   }
    changeSelection() {
     this.fetchSelectedItems()
@@ -66,6 +67,6 @@ selectedItemsList = [];
         this.checkedIDs.push(value.id);
       }
     });
-    
+
   }
 }

@@ -38,6 +38,6 @@ export class EquiposAsignadosComponent implements OnInit {
 
   }
     equipoDetalles(equipo){
-       this.router.navigate(['equipos-asignados/'+equipo.codIncidente]);//equipo-mantenimiento
+       this.router.navigate(['equipos-asignados/'+equipo.codIncidente]);//equipo-incidente
   }
 }

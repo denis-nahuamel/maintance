@@ -10,25 +10,25 @@ import { map } from 'rxjs/operators';
   providedIn: 'root'
 })
 export class RepuestosService {
-apiURL = 'https://api.chucknorris.io/jokes';
+apiURL = 'https://projectlab6.herokuapp.com/informe/componentesAlmacen/';
  httpOptions = {
     headers: new HttpHeaders({
       'Content-Type': 'application/json'
     })
-  }  
+  }
   public nombreRepuesto="";
    public Repuesto: Observable<RepuestoInterface[]>;
-  
- private messageSource = new BehaviorSubject('');
+
+ private messageSource = new BehaviorSubject<any>("");
   currentMessage = this.messageSource.asObservable();
  constructor(private http: HttpClient) { }
- changeMessage(message: string) {
-  
+ changeMessage(message) {
+
     this.messageSource.next(message)
-  } 
+  }
 getRepuestos(): Observable<any>  {
-	
-    return this.http.get('https://jsonplaceholder.typicode.com/todos').pipe(
+
+    return this.http.get(this.apiURL).pipe(
       map(this.extractData),
       catchError(this.handleError)
     );
