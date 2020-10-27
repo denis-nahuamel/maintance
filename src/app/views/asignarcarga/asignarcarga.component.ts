@@ -38,12 +38,9 @@ export class AsignarcargaComponent implements OnInit {
       this.Tecnicos = data;
     });
   }
-  getTecnico(tecnico: EquipoAsignadoInterface) {
-     console.log("tecnico");
+  getTecnico(tecnico: EquipoAsignadoInterface) {//obtiene los datos del tecnico
     this.tecnicoService.tecnicoSeleccionado(tecnico);
-    console.log("tecnico");
-   // this.router.navigate(["asignar-carga/" + tecnico.dni]);
-   this.router.navigate(["asignar-carga/70123123"]);
+   this.router.navigate(["asignar-carga/"+tecnico.dni]);//asignar-carga-fin
   }
 
   checkAllCheckBox(ev) {

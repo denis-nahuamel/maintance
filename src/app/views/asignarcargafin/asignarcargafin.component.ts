@@ -22,6 +22,7 @@ export class AsignarcargafinComponent implements OnInit {
   checkedIDs = [];
   cargaTecnico=[];
   nombreTecnico: string;
+  dniTecnico:string;//dni del tecnico
   enviarCarga=new Array();
   constructor(
     private activatedRoute: ActivatedRoute,
@@ -53,6 +54,7 @@ export class AsignarcargafinComponent implements OnInit {
       this.Equipos.forEach((value, index) => {
         if (value.dni) {
           value.checked=true;
+          this.dniTecnico=value.dni;
         }
       });
     });
@@ -88,12 +90,13 @@ export class AsignarcargafinComponent implements OnInit {
       if (value.checked) {
           var obj = {};
           obj['codTarea'] = value.codTarea;
-          obj['dni'] = value.dni;
+          obj['dni'] = this.dniTecnico;
           obj['codJefe'] = "DOC004";
           obj['codIncidente'] = value.codIncidente;
           this.cargaTecnico.push(obj);
       }
     });
+    console.log("ty",this.cargaTecnico);
     this.tecnicoService.asignarCarga(this.cargaTecnico).subscribe(res => {
          console.log('Se agrego con exito',res);
 

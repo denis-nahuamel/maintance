@@ -29,7 +29,7 @@ export class EquiposAsignadosComponent implements OnInit {
     	console.log("load",data);
       this.Equipos = data;
       this.Equipos.forEach((value, index) => {
-      if (value.dni!=null) {//solo equipos asignados
+      if (value.dni=="70123123") {//solo equipos asignados al dni del tecnico
 
           this.Tareas.push(value);//agregar al arreglo tareas
       }
