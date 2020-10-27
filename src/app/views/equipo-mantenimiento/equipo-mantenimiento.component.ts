@@ -18,6 +18,7 @@ export class EquipoMantenimientoComponent implements OnInit {
   Equipo:any;
   ComponenteAlmacen:any;//componente que se selecciono del almacen
   ComponenteEquipo:any;//componente del equipo que va a ser retirado
+  codEquipo:string;//codigo del equipo
   constructor(private repuestosService:RepuestosService,
     private activatedRoute: ActivatedRoute,
     private formBuilder: FormBuilder, private router: Router,private incidenteService: IncidenciaService) {
@@ -27,17 +28,18 @@ export class EquipoMantenimientoComponent implements OnInit {
   ngOnInit(): void {
      this.repuestosService.currentMessage.subscribe(message => this.ComponenteAlmacen= message)
     this.idIncidente = this.activatedRoute.snapshot.paramMap.get('id');//i
-    this.componenteAlmacen=this.ComponenteAlmacen.catalogo
+    this.componenteAlmacen=this.ComponenteAlmacen.catalogo;
+    this.getIncidente();
   }
   getIncidente(){
-      this.incidenteService.obtenerInforme(this.idIncidente).subscribe((data: {}) => {
+      this.incidenteService.getIncidencia(this.idIncidente).subscribe((data: {}) => {
     	console.log("load",data);
       this.Equipo = data;
     });
   }
   //============obtener componente que va a ser reemplazado
   obtenerComponente(){
-     this.router.navigate(['equipos-asignados/'+this.idIncidente+'/componentes']);//equipo-mantenimiento/equipo-componentes
+     this.router.navigate(['equipos-asignados/'+this.Equipo.codEquipo+'/componentes']);//equipo-mantenimiento/equipo-componentes
   }
 getRepuestos(){
   	   this.router.navigate(['equipos-asignados/'+this.idIncidente+'/repuestos']);//repuestos

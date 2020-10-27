@@ -10,6 +10,7 @@ import { map } from 'rxjs/operators';
 })
 export class ComponenteService {
 apiURL = 'https://projectlab6.herokuapp.com/componente';
+apiURLComponentes = 'https://projectlab6.herokuapp.com/componente/componentesPorEquipo/';
  httpOptions = {
     headers: new HttpHeaders({
       'Content-Type': 'application/json'
@@ -53,6 +54,14 @@ getComponentesAsignados(id:string): Observable<any>  {
    getComponentes(): Observable<any>  {
 
     return this.http.get(this.apiURL).pipe(
+      map(this.extractData),
+      catchError(this.handleError)
+    );
+  }
+  //==================componentes por equipo================
+  obtenerComponentesEquipo(id:string): Observable<any>  {
+
+    return this.http.get(this.apiURLComponentes+id).pipe(
       map(this.extractData),
       catchError(this.handleError)
     );

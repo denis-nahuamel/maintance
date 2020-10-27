@@ -14,19 +14,17 @@
                               <thead class="thead-dark">
                                 <tr>
                                   <th scope="col">#</th>
-                                  <th scope="col">Nombre</th>
-                                  <th scope="col">Repuestos buenos</th>
-                                  <th scope="col">Repuestos malogrados</th>
+                                  <th scope="col">Nombre del componente</th>
+
                                   <th scope="col">Seleccionar</th>
                                 </tr>
                               </thead>
                               <tbody>
-                                <tr *ngFor="let repuesto of Repuestos | filter:term; let i = index;">
-                                  <th scope="row">1</th>
-                                  <td>{{repuesto.title}}</td>
-                                  <td>4</td>
-                                  <td>2</td>
-                                  <td>  <input type="checkbox" class="btn btn-primary" [(ngModel)]="repuesto.checked" (change)="changeSelection()"></td>
+                                <tr *ngFor="let componente of Componentes | filter:term; let i = index;">
+                                  <th scope="row">{{componente.codComponente}}</th>
+                                  <td>{{componente.catalogo}}</td>
+
+                                  <td>  <input type="checkbox" class="btn btn-primary" [(ngModel)]="componente.checked" (change)="changeSelection()"></td>
                                 </tr>
 
                               </tbody>

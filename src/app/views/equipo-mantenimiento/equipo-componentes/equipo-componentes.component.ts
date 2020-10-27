@@ -32,8 +32,8 @@ selectedItemsList = [];
 
   loadComponentes() {
 
-    return this.componentesService.getComponentes().subscribe((data: {}) => {
-
+    return this.componentesService.obtenerComponentesEquipo(this.idEquipo).subscribe((data: {}) => {
+      console.log("compo",data);
       this.Componentes = data;
     })
   }
@@ -43,7 +43,7 @@ selectedItemsList = [];
 
   nombreRepuesto(){
 
-  	  this.componentesService.cambiarNombreComponente(this.selectedItemsList[0].title);
+  	  this.componentesService.cambiarNombreComponente(this.selectedItemsList[0].catalogo);
   	   this.router.navigate(['equipos-asignados/'+this.idEquipo+'/mantenimiento']);
   }
    changeSelection() {
