@@ -22,9 +22,9 @@
                                     <label class="col-lg-3 col-form-label form-control-label" >Estado</label>
                                     <label class="col-lg-3 col-form-label form-control-label" *ngFor="let g of activo">
                                         <div class="col-lg-9">
-                                        <input type="radio" [value]="g.value" name="estado" formControlName="estado"
+                                        <input type="radio" [value]="g.value" name="estado" [checked]="g.selected" formControlName="estado"
 
-                                        [checked]="postMantenimiento.get('estado').value == g.value">{{g.text}}
+                                       (change)="this.cambioEstado(g)">{{g.text}}
                                     </div>
                                     </label>
 
@@ -34,10 +34,11 @@
                                     <label class="col-lg-3 col-form-label form-control-label" >Tipo de solución</label>
                                     <label class="col-lg-3 col-form-label form-control-label" *ngFor="let g of solucion">
                                         <div class="col-lg-9">
-                                        <input type="radio" [value]="g.value" name="solucion" formControlName="solucion"
+                                            <input type="radio" [value]="g.value"  [checked]="g.selected"
+                                            name="solucion" formControlName="solucion" (change)="this.cambioSolucion(g)"
+                                            >{{g.text}}
 
-                                        [checked]="postMantenimiento.get('solucion').value == g.value">{{g.text}}
-                                    </div>
+                                        </div>
                                     </label>
 
                                </div>

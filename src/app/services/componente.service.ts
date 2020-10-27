@@ -33,10 +33,10 @@ private messageSource = new BehaviorSubject('');
     this.messageSource.next(message)
   }
 //=================nombre componente malogrado============
-  private mensajeComponente = new BehaviorSubject('');
+  private mensajeComponente = new BehaviorSubject<any>("");
    nombreComponenteActual = this.mensajeComponente.asObservable();
 
- cambiarNombreComponente(message: string) {
+ cambiarNombreComponente(message) {
     this.mensajeComponente.next(message)
   }
 

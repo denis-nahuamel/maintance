@@ -43,8 +43,8 @@ selectedItemsList = [];
 
   nombreRepuesto(){
 
-  	  this.componentesService.cambiarNombreComponente(this.selectedItemsList[0].catalogo);
-  	   this.router.navigate(['equipos-asignados/'+this.idEquipo+'/mantenimiento']);
+  	  this.componentesService.cambiarNombreComponente(this.selectedItemsList[0]);
+  	   this.router.navigate(['equipos-asignados/'+this.idEquipo+'/mantenimiento']);//equipo-mantenimiento
   }
    changeSelection() {
     this.fetchSelectedItems()
