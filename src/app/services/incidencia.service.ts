@@ -16,6 +16,7 @@ import { map } from "rxjs/operators";
 export class IncidenciaService {
   apiURL = "https://projectlab6.herokuapp.com/incidente/";
   apiInforme = "https://projectlab6.herokuapp.com/informe/";
+  apiSolucionSoftware = "https://projectlab6.herokuapp.com/solucionsoftware";
 
   httpOptions = {
     headers: new HttpHeaders({
@@ -81,7 +82,12 @@ export class IncidenciaService {
       catchError(this.handleError)
     );
   }
-
+//================insertar solucion===========================
+  insertarSolucionSoftware(solucion: any): Observable<any> {
+    return this.http
+      .post(this.apiSolucionSoftware + "/insertar", solucion)
+      .pipe(catchError(this.handleError));
+  }
 
 
 

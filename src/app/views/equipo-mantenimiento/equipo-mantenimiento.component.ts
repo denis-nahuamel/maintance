@@ -19,9 +19,25 @@ export class EquipoMantenimientoComponent implements OnInit {
   ComponenteAlmacen:any;//componente que se selecciono del almacen
   ComponenteEquipo:any;//componente del equipo que va a ser retirado
   codEquipo:string;//codigo del equipo
+  activo:any;//equipo activo o inactivo
+  solucion:any;//tipo de solucion
+  postSoftware=[];
+  Informe:any;//id del informe
+public postMantenimiento = new FormGroup({
+
+
+    estado: new FormControl(''),
+    detalles: new FormControl(''),
+    codEquipo: new FormControl(''),
+    componenteEquipo: new FormControl(''),
+    componenteAlmacen: new FormControl(''),
+    solucion:new FormControl('')
+  });
   constructor(private repuestosService:RepuestosService,
     private activatedRoute: ActivatedRoute,
     private formBuilder: FormBuilder, private router: Router,private incidenteService: IncidenciaService) {
+this.activo = [{ value: 1, text: "Operativo", selected: "checked" }, { value: 2, text: "Inoperativo", selected: "" }];
+this.solucion = [{ value: 1, text: "Hardware", selected: "checked" }, { value: 2, text: "Software", selected: "" }];
 
   }
 
@@ -30,12 +46,39 @@ export class EquipoMantenimientoComponent implements OnInit {
     this.idIncidente = this.activatedRoute.snapshot.paramMap.get('id');//i
     this.componenteAlmacen=this.ComponenteAlmacen.catalogo;
     this.getIncidente();
+   // this.obtenerInforme();
   }
   getIncidente(){
       this.incidenteService.getIncidencia(this.idIncidente).subscribe((data: {}) => {
     	console.log("load",data);
       this.Equipo = data;
+      this.incidenteService.obtenerInforme(this.Equipo.codEquipo).subscribe((data: {}) => {
+        this.Informe=data;
+        console.log("infor",data);
+      });
     });
+  }
+  obtenerInforme(){
+     console.log("infor");
+      this.incidenteService.obtenerInforme(this.Equipo.codEquipo).subscribe((data: {}) => {
+       this.Informe=data;
+       console.log("infor",data);
+    });
+  }
+  //=================realizar mantenimiento================
+  realizarMantenimiento(datos){
+
+      if (datos.solucion==2) {
+          var obj = {};
+          obj['descripcion'] = datos.detalles;
+          obj['codInforme'] = this.Informe.codInforme;
+          this.postSoftware.push(obj);
+      }
+    this.incidenteService.insertarSolucionSoftware(this.postSoftware).subscribe(res => {
+         console.log('Se agrego con exito',res);
+
+    });
+    //this.irAtras();
   }
   //============obtener componente que va a ser reemplazado
   obtenerComponente(){
