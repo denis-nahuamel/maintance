@@ -30,7 +30,7 @@ public codEquipo:string;
   	if(this.codEquipo){
   		this.titulo="Modificar Equipo";
   		this.equipoService.getEquipo(this.codEquipo).subscribe(equipo => {
-         this.nombreCatalogo=equipo.codCatalogo;
+         this.nombreCatalogo=equipo.codCtgoEquipo;
          if (equipo.estado=="OPERATIVO") {
 
          	this.valorEstado=1;
@@ -64,7 +64,8 @@ public codEquipo:string;
   });
 
  agregarEquipo(data: EquipoInterface) {
- 	data.codCatalogo=this.nombreCatalogo;
+
+ 	data.codCtgoEquipo=this.nombreCatalogo;
  	if (data.estado=="1") {
  		data.estado="OPERATIVO"
  	}

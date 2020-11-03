@@ -30,8 +30,8 @@ export class AgregarTecnicoComponent implements OnInit {
              apellidos:tecnico.apellidos,
              telefono:tecnico.telefono,
               correo:tecnico.correo,
-               contra:tecnico.contra,
-               usuario:tecnico.usuario
+               contra:tecnico.contra
+
           });
       });
   	}
@@ -45,8 +45,7 @@ export class AgregarTecnicoComponent implements OnInit {
     apellidos: new FormControl('', Validators.required),
     telefono: new FormControl(),
     correo: new FormControl(),
-    contra: new FormControl(),
-    usuario:new FormControl()
+    contra: new FormControl()
   });
 
  agregarTecnico(data: TecnicoInterface) {

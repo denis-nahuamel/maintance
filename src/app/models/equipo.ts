@@ -4,6 +4,6 @@ export interface EquipoInterface {
         descripcion: string;
         estado: string;
         ubicacion: string;
-        codCatalogo: string;
+        codCtgoEquipo: string;
   checked?: boolean;
 }

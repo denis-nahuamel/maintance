@@ -5,7 +5,6 @@ export interface TecnicoInterface {
   telefono: string;
   correo: string;
   activo:number;
-  usuario:string;
   contra: string;
 }
 export interface ITecnico extends TecnicoInterface {

@@ -10,7 +10,7 @@ import { map } from 'rxjs/operators';
   providedIn: 'root'
 })
 export class EquiposService {
-apiURL = 'https://projectlab6.herokuapp.com/equipo/';
+apiURL = 'https://projectlab6.herokuapp.com/equipo';
 apiURL2 = 'https://projectlab6.herokuapp.com/tarea/EquiposNoAsignados/';
  httpOptions = {
     headers: new HttpHeaders({
