@@ -85,9 +85,9 @@ this.estado=g.value;
           var obj = {};
           obj['descripcion'] = datos.detalles;
           obj['codInforme'] = this.Informe.codInforme;
-          this.postSoftware.push(obj);
-          console.log( this.postSoftware);
-          this.incidenteService.insertarSolucionSoftware(this.postSoftware).subscribe(res => {
+          //this.postSoftware.push(obj);
+         // console.log( this.postSoftware);
+          this.incidenteService.insertarSolucionSoftware(obj).subscribe(res => {
          console.log('Se agrego con exito',res);
           });
       }

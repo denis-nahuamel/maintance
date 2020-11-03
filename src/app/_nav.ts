@@ -36,7 +36,7 @@ export const navItems: INavData[] = [
     url: '/asignar-carga',
     icon: 'icon-drop'
   },
- 
+
    {
     name: 'Equipos Asignados',
     url: '/equipos-asignados',
@@ -44,7 +44,7 @@ export const navItems: INavData[] = [
   },
   {
     name: 'Componentes',
-  
+
     icon: 'icon-bell',
     children: [
       {
@@ -94,17 +94,17 @@ export const navItems: INavData[] = [
     ]
   },
   {
-    name: 'Usuario',
+    name: 'Docente',
     icon: 'icon-bell',
     children: [
       {
-        name: 'Listar Usuarios',
-        url: '/usuario',
+        name: 'Listar Docentes',
+        url: '/docente',
         icon: 'icon-bell'
       },
       {
-        name: 'Agregar Equipo',
-        url: '/usuario/insertar',
+        name: 'Agregar Docente',
+        url: '/docente/insertar',
         icon: 'icon-bell'
       }
     ]
@@ -125,24 +125,7 @@ export const navItems: INavData[] = [
       }
     ]
   },
-  {
-    name: 'Docentes',
-    url: '/docentes',
-    icon: 'icon-cursor',
-   /* children: [
-      {
-        name: 'Agregar Docente',
-        url: '/docentes/agregar-docente',
-        icon: 'icon-cursor'
-      },
-      {
-        name: 'Listar Docente',
-        url: '/docentes',
-        icon: 'icon-cursor'
-      }
-      
-    ]*/
-  }/*,
+ /*,
   {
     name: 'Charts',
     url: '/charts',

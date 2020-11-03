@@ -50,8 +50,7 @@ import { EquiposAsignadosComponent } from "./views/equipos-asignados/equipos-asi
 import { EquipoIncidenteComponent } from "./views/equipo-incidente/equipo-incidente.component";
 import { EquipoMantenimientoComponent } from "./views/equipo-mantenimiento/equipo-mantenimiento.component";
 import { RepuestosComponent } from "./views/repuestos/repuestos.component";
-import { ListarDocenteComponent } from "./views/listar-docente/listar-docente.component";
-import { AgregarDocenteComponent } from "./views/agregar-docente/agregar-docente.component";
+import { AgregarDocenteComponent } from "./views/docente/agregar-docente/agregar-docente.component";
 import { AgregarComponenteComponent } from "./views/agregar-componente/agregar-componente.component";
 import { DocenteAgregarComponent } from "./views/docente-agregar/docente-agregar.component";
 import { CatalogoComponent } from "./views/catalogo/catalogo.component";
@@ -68,6 +67,7 @@ import { AgregarTecnicoComponent } from "./views/tecnico/agregar-tecnico/agregar
 import { ListarTecnicosComponent } from "./views/tecnico/listar-tecnicos/listar-tecnicos.component";
 import { ListarIncidentesComponent } from "./views/docente/listar-incidentes/listar-incidentes.component";
 import { EquipoComponentesComponent } from './views/equipo-mantenimiento/equipo-componentes/equipo-componentes.component';
+import { ListarDocentesComponent } from './views/docente/listar-docentes/listar-docentes.component';
 //import { TecnicoService } from './services/tecnico.service';
 //import { EquipoComponent } from './services/equipo/equipo.component';
 
@@ -104,7 +104,7 @@ import { EquipoComponentesComponent } from './views/equipo-mantenimiento/equipo-
     EquipoIncidenteComponent,
     EquipoMantenimientoComponent,
     RepuestosComponent,
-    ListarDocenteComponent,
+
     AgregarDocenteComponent,
     DocenteAgregarComponent,
     CatalogoComponent,
@@ -122,7 +122,8 @@ import { EquipoComponentesComponent } from './views/equipo-mantenimiento/equipo-
     AgregarTecnicoComponent,
     ListarTecnicosComponent,
     ListarIncidentesComponent,
-    EquipoComponentesComponent
+    EquipoComponentesComponent,
+    ListarDocentesComponent
   ],
   providers: [
     {

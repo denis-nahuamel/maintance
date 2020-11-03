@@ -7,13 +7,13 @@
                             <h4 class="mb-0">{{titulo}}</h4>
                         </div>
                        <div class="card-body">
-                            <form class="form" role="form" [formGroup]="postTecnico" (ngSubmit)="agregarTecnico(postTecnico.value)">
+                            <form class="form" role="form" [formGroup]="postDocente" (ngSubmit)="agregarDocente(postDocente.value)">
 
 
                                 <div class="form-group row">
                                     <label class="col-lg-3 col-form-label form-control-label">DNI</label>
                                     <div class="col-lg-9">
-                                        <input class="form-control" type="text" formControlName="dni" >
+                                        <input class="form-control" type="text" formControlName="codDocente" >
                                     </div>
                                 </div>
                                 <div class="form-group row">
@@ -35,17 +35,30 @@
                                     </div>
                                 </div>
                                 <div class="form-group row">
-                                    <label class="col-lg-3 col-form-label form-control-label">Correo</label>
+                                    <label class="col-lg-3 col-form-label form-control-label">Regimen</label>
+                                    <div class="col-lg-9">
+                                        <input class="form-control" type="text" formControlName="regimen" >
+                                    </div>
+                                </div>
+                                <div class="form-group row">
+                                    <label class="col-lg-3 col-form-label form-control-label">Categoria</label>
+                                    <div class="col-lg-9">
+                                        <input class="form-control" type="text" formControlName="categoria" >
+                                    </div>
+                                </div>
+                                <div class="form-group row">
+                                    <label class="col-lg-3 col-form-label form-control-label">Condicion</label>
+                                    <div class="col-lg-9">
+                                        <input class="form-control" type="text" formControlName="condicion" >
+                                    </div>
+                                </div>
+                                <div class="form-group row">
+                                    <label class="col-lg-3 col-form-label form-control-label">Correo (Usuario)</label>
                                     <div class="col-lg-9">
                                         <input class="form-control" type="text" formControlName="correo" >
                                     </div>
                                 </div>
-                                <div class="form-group row">
-                                    <label class="col-lg-3 col-form-label form-control-label">Usuario</label>
-                                    <div class="col-lg-9">
-                                        <input class="form-control" type="text" formControlName="usuario" >
-                                    </div>
-                                </div>
+
                                 <div class="form-group row">
                                     <label class="col-lg-3 col-form-label form-control-label">Constraseña</label>
                                     <div class="col-lg-9">
@@ -63,7 +76,7 @@
                                     <label class="col-lg-3 col-form-label form-control-label"></label>
                                     <div class="col-lg-9">
                                         <input type="reset" class="btn btn-secondary" value="Cancelar">
-                                        <input type="submit" class="btn btn-primary" value="Guardar" [disabled]="!postTecnico.valid">
+                                        <input type="submit" class="btn btn-primary" value="Guardar" [disabled]="!postDocente.valid">
                                     </div>
                                 </div>
                             </form>
@@ -73,3 +86,4 @@
         </div>
     </div>
 </div>
+

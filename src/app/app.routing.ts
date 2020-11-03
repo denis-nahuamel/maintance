@@ -19,10 +19,9 @@ import { EquipoComponentesComponent } from "./views/equipo-mantenimiento/equipo-
 import { RegistrarIncidenciaComponent } from "./views/registrar-incidencia/registrar-incidencia.component";
 
 
-import { ListarDocenteComponent } from "./views/listar-docente/listar-docente.component";
+import { ListarDocentesComponent } from "./views/docente/listar-docentes/listar-docentes.component";
 import { ListarIncidentesComponent } from "./views/docente/listar-incidentes/listar-incidentes.component";
-//import { DocenteListarComponent } from './views/docente-listar/docente-listar.component';
-import { AgregarDocenteComponent } from "./views/agregar-docente/agregar-docente.component";
+import { AgregarDocenteComponent } from "./views/docente/agregar-docente/agregar-docente.component";
 
 import { DocenteAgregarComponent } from "./views/docente-agregar/docente-agregar.component";
 import { AgregarCatalogoComponent } from "./views/agregar-catalogo/agregar-catalogo.component";
@@ -203,10 +202,11 @@ export const routes: Routes = [
         children: [
           {
             path: "",
-            component: ListarDocenteComponent /*canActivate: [AuthGuard],data: {role: 'estudiante'}*/
+            component: ListarDocentesComponent /*canActivate: [AuthGuard],data: {role: 'estudiante'}*/
           },
+          { path: "editar/:id", component: AgregarDocenteComponent },
           {
-            path: "agregar-docente",
+            path: "insertar",
             children: [
               {
                 path: "",

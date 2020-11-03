@@ -4,6 +4,11 @@ export interface TecnicoInterface {
   apellidos: string;
   telefono: string;
   correo: string;
+  activo:number;
+  usuario:string;
   contra: string;
-  equiposAsignados: string;
+}
+export interface ITecnico extends TecnicoInterface {
+     contra: string;
+    equiposAsignados: string;
 }

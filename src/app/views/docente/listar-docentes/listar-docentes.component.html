@@ -1,0 +1,46 @@
+<div class="container py-3">
+    <div class="row">
+        <div class="mx-auto col-sm-12">
+                    <!-- form user info -->
+                    <div class="card">
+                        <div class="card-header">
+                            <h4 class="mb-0">Listar Docentes</h4>
+                             <button type="button" class="btn btn-success" style="float:right" (click)="agregarDocente()">Agregar Docente</button>
+                        </div>
+                        <div class="card-body">
+                            <table class="table">
+                              <thead class="thead-dark">
+                                <tr>
+                                  <th scope="col">Codigo</th>
+                                  <th scope="col">Nombre</th>
+                                  <th scope="col">Apellidos</th>
+                                  <th scope="col">Telefono</th>
+                                 <th scope="col">Eliminar</th>
+                                   <th scope="col">Detalles</th>
+                                </tr>
+                              </thead>
+                              <tbody>
+                                <tr *ngFor="let docente of Docentes; let i = index;">
+                                  <th scope="row">{{docente.codDocente}}</th>
+                                  <td>{{docente.nombre}}</td>
+                                  <td>{{docente.apellidos}}</td>
+                                  <td>{{docente.telefono}}</td>
+
+                                  <td><button type="button" class="btn btn-danger" (click)="borrarDocente(docente)" >Eliminar</button></td>
+                                  <td><button type="button" class="btn btn-outline-success" (click)="docenteDetalles(docente)">ver detalles</button></td>
+                                </tr>
+
+                              </tbody>
+                            </table>
+
+
+                        </div>
+                    </div>
+                    <!-- /form user info -->
+        </div>
+    </div>
+</div>
+
+
+
+
