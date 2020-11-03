@@ -14,7 +14,7 @@ import { map } from "rxjs/operators";
   providedIn: "root"
 })
 export class IncidenciaService {
-  apiURL = "https://projectlab6.herokuapp.com/incidente/";
+  apiURL = "https://projectlab6.herokuapp.com/incidente";
   apiInforme = "https://projectlab6.herokuapp.com/informe/";
   apiSolucionSoftware = "https://projectlab6.herokuapp.com/solucionsoftware";
 

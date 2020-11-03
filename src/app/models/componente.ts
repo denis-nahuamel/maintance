@@ -3,6 +3,6 @@ export interface ComponenteInterface {
   estado: string;
   ubicacion: string; // URL que contiene el ID y permite recuperar la frase
   codEquipo: string;
-  codCatalogo: string;
+  codCtgoComponente: string;
   checked?: boolean;
 }

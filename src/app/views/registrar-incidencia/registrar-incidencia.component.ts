@@ -52,6 +52,7 @@ export class RegistrarIncidenciaComponent implements OnInit {
     codEquipo: new FormControl("")
   });
   agregarIncidencia(incidente: IncidenteInterface) {
+    console.log("incisdencia", incidente);
     if (this.codIncidente) {
       //actualizar catalogo
       this.incidenciaService

@@ -16,30 +16,30 @@ constructor(private activatedRoute: ActivatedRoute,private incidenciaService: In
 
  Incidencias: any = [];
   ngOnInit(): void {
-    
+
     this.cargarIncidencias();
 
   }
 
   cargarIncidencias() {
-  	
+
     return this.incidenciaService.getIncidencias().subscribe((data: {}) => {
     	//console.log("load",data);
       this.Incidencias = data;
     })
   }
   borrarIncidencia(incidencia:IncidenteInterface) {
-    
+
     return this.incidenciaService.borrarIncidencia(incidencia.codIncidente).subscribe(res => {
          this.Incidencias = this.Incidencias.filter(item => item.codIncidente !== incidencia.codIncidente);
          console.log('Post deleted successfully!');
     })
   }
   incidenciaDetalles(incidencia:IncidenteInterface){
-      this.router.navigate(['docente/incidente/editar/'+incidencia.codIncidente]);  
+      this.router.navigate(['docente/incidente/editar/'+incidencia.codIncidente]);
   }
   agregarIncidencia(){
-    
-      this.router.navigate(['docente/incidente/insertar']);  
+
+      this.router.navigate(['docente/incidente/insertar']);  //Registrar-incidencia
   }
 }

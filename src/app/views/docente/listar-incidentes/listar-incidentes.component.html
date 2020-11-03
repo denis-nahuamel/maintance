@@ -13,10 +13,11 @@
 							<tr>
 								<th scope="col">Codigo</th>
 								<th scope="col">Fecha</th>
-								<th scope="col">Cod Equipo</th>
+								<th scope="col">Nombre</th>
 								<th scope="col">Descripci&oacute;n</th>
-								<th scope="col">Estado</th>
-								<th scope="col">Eliminar</th>
+
+								<!--<th scope="col">Estado</th>-->
+
 
 								<th scope="col">Detalles</th>
 							</tr>
@@ -25,18 +26,12 @@
 							<tr *ngFor="let incidente of Incidencias; let i = index;">
 								<th scope="row">{{incidente.codIncidente}}</th>
 								<td>{{incidente.fecha}}</td>
-								<td>{{incidente.codEquipo}}</td>
+								<td>{{incidente.equipo}}</td>
 								<td>{{incidente.descripcion}}</td>
-								<!--<td>{{incidente.solucionado}}</td>-->
-                <td><div *ngIf="isValid; then templateName">
-    Here is never showing
-</div>
+								<!--<td>{{incidente.Solucionado}}</td>-->
 
-<ng-template #templateName>
-    If isValid is true
-</ng-template></td>
-								<td><button type="button" class="btn btn-danger" (click)="borrarIncidencia(incidente)" >Eliminar</button>
-								</td>
+							<!--	<td><button type="button" class="btn btn-danger" (click)="borrarIncidencia(incidente)" >Eliminar</button>
+								</td>-->
 								<td><button type="button" class="btn btn-outline-success" (click)="incidenciaDetalles(incidente)">ver detalles</button>
 								</td>
 							</tr>

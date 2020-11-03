@@ -20,7 +20,7 @@ public codComponente:string;
 
    public nombreRepuesto="";
   message:string;
-  
+
   constructor(private activatedRoute: ActivatedRoute,
     private componenteService: ComponenteService,
      private equipoService: EquiposService,
@@ -28,18 +28,18 @@ public codComponente:string;
     this.activo = [{ value: 1, text: "Operativo", selected: "checked" }, { value: 2, text: "Inoperativo", selected: "" }];
     this.componenteService.currentMessage.subscribe(message => this.nombreCatalogo = message);
      this.componenteService.codActualEquipo.subscribe(message => this.nombreEquipo = message)
-     
+
     }
 
   ngOnInit(): void {
     this.codComponente = this.activatedRoute.snapshot.paramMap.get('id');//idComponente
     if(this.codComponente){
       this.titulo="Modificar Componente";
-      this.componenteService.getComponente(this.codComponente).subscribe(componente => {             
-         this.nombreCatalogo=componente.codCatalogo;
+      this.componenteService.getComponente(this.codComponente).subscribe(componente => {
+         this.nombreCatalogo=componente.codCtgoComponente;
          this.nombreEquipo=componente.codEquipo;
          if (componente.estado=="OPERATIVO") {
-           
+
            this.valorEstado=1;
          }
          else
@@ -51,8 +51,8 @@ public codComponente:string;
              estado: this.valorEstado,
              ubicacion:componente.ubicacion,
              codEquipo:componente.codEquipo,
-             codCatalogo:componente.codCatalogo
-          });  
+             codCtgoComponente:componente.codCtgoComponente
+          });
       });
     }
     else{
@@ -63,12 +63,12 @@ public codComponente:string;
     codComponente: new FormControl(),
     ubicacion: new FormControl(),
     codEquipo: new FormControl(),
-    codCatalogo: new FormControl(),
+    codCtgoComponente: new FormControl(),
     estado: new FormControl(''),
-    
+
   });
  agregarComponente(data: ComponenteInterface) {
-   data.codCatalogo=this.nombreCatalogo;
+   data.codCtgoComponente=this.nombreCatalogo;
     data.codEquipo=this.nombreEquipo;
    if (data.estado=="1") {
      data.estado="OPERATIVO"
@@ -81,7 +81,7 @@ public codComponente:string;
              this.componenteService.actualizarComponente(this.codComponente,data).subscribe(res => {
            console.log('componente actualizado');
         });
-        this.irAtras();    
+        this.irAtras();
       }
       else{//agregar componente
         console.log(data);
@@ -89,16 +89,16 @@ public codComponente:string;
          console.log('Se agrego con exito',res);
       });
         this.irAtras();
-      }    
+      }
   }
 
   irAtras(){
     this.router.navigate(['/componente']);
   }
   getCatalogo(){
-       this.router.navigate(['equipo/seleccionar-catalogo/2']);  //2 para seleccionar catalogo para componente 
+       this.router.navigate(['equipo/seleccionar-catalogo/2']);  //2 para seleccionar catalogo para componente
   }
 getEquipo(){
-       this.router.navigate(['equipo/seleccionar-equipo/1']); //opcion de componente 
+       this.router.navigate(['equipo/seleccionar-equipo/1']); //opcion de componente
   }
 }

@@ -77,7 +77,6 @@ export class TecnicoService {
   }
   //===================actualizar tecnico=====================
   actualizarTecnico(idTecnico, tecnico): Observable<any> {
-    console.log(tecnico);
     return this.http
       .put<TecnicoInterface>(
         this.apiURL + "/editar/" + idTecnico,

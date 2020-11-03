@@ -13,9 +13,9 @@
                                 <tr>
                                   <th scope="col">Codigo</th>
                                   <th scope="col">Estado</th>
-                                  <th scope="col">Ubicaci&oacute;n</th>
-                                  <th scope="col">C&oacute;digo Equipo</th>
-                                 
+                                  <th scope="col">Catalogo</th>
+                                  <th scope="col">Equipo</th>
+
                                    <th scope="col">Eliminar</th>
                                    <th scope="col">Detalles</th>
                                 </tr>
@@ -24,17 +24,17 @@
                                 <tr *ngFor="let componente of Componentes; let i = index;">
                                   <th scope="row">{{componente.codComponente}}</th>
                                   <td>{{componente.estado}}</td>
-                                  <td>{{componente.ubicacion}}</td>
-                                  <td>{{componente.codEquipo}}</td>
-                                  
+                                  <td>{{componente.catalogo}}</td>
+                                  <td>{{componente.equipo}}</td>
+
                                   <td><button type="button" class="btn btn-danger" (click)="borrarComponente(componente)" >Eliminar</button></td>
                                   <td><button type="button" class="btn btn-outline-success" (click)="componenteDetalles(componente)">ver detalles</button></td>
                                 </tr>
-                                
+
                               </tbody>
                             </table>
 
-                          
+
                         </div>
                     </div>
                     <!-- /form user info -->
