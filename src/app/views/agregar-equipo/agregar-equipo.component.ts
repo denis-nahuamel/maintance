@@ -22,17 +22,17 @@ public codEquipo:string;
    private router: Router,private catalogoService: CatalogoService) {
 		this.activo = [{ value: 1, text: "Activo", selected: "checked" }, { value: 2, text: "Inactivo", selected: "" }];
     this.catalogoService.currentMessage.subscribe(message => this.nombreCatalogo = message)
-  
+
     }
 
   ngOnInit(): void {
   	this.codEquipo = this.activatedRoute.snapshot.paramMap.get('id');//idEquipo
   	if(this.codEquipo){
   		this.titulo="Modificar Equipo";
-  		this.equipoService.getEquipo(this.codEquipo).subscribe(equipo => {             
+  		this.equipoService.getEquipo(this.codEquipo).subscribe(equipo => {
          this.nombreCatalogo=equipo.codCatalogo;
          if (equipo.estado=="OPERATIVO") {
-         	
+
          	this.valorEstado=1;
          }
          else
@@ -44,9 +44,9 @@ public codEquipo:string;
              estado: this.valorEstado,
 
              ubicacion:equipo.ubicacion,
-             codCatalogo:equipo.codCatalogo,
+             codCtgoEquipo:equipo.codCtgoEquipo,
              descripcion:equipo.descripcion,
-          });  
+          });
       });
   	}
   	else{
@@ -57,12 +57,12 @@ public codEquipo:string;
     patrimonio: new FormControl(),
     estado: new FormControl(),
     ubicacion: new FormControl('', Validators.required),
-    codCatalogo: new FormControl(),
+    codCtgoEquipo: new FormControl(),
      descripcion: new FormControl(),
-    
-    
+
+
   });
-   
+
  agregarEquipo(data: EquipoInterface) {
  	data.codCatalogo=this.nombreCatalogo;
  	if (data.estado=="1") {
@@ -76,7 +76,7 @@ public codEquipo:string;
              this.equipoService.actualizarEquipo(this.codEquipo,data).subscribe(res => {
            console.log('equipo actualizado');
 	      });
-	      this.irAtras();    
+	      this.irAtras();
       }
       else{//agregar equipo
       	console.log(data);
@@ -84,14 +84,14 @@ public codEquipo:string;
          console.log('Se agrego con exito',res);
     	});
         this.irAtras();
-      }  	
+      }
   }
 
   irAtras(){
   	this.router.navigate(['/equipo']);
   }
   getCatalogo(){
-  	   this.router.navigate(['equipo/seleccionar-catalogo/1']); //1 para agregar catalogo a equipo 
+  	   this.router.navigate(['equipo/seleccionar-catalogo/1']); //1 para agregar catalogo a equipo seleccionar-equipo
   }
 
 }

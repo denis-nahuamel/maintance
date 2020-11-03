@@ -17,21 +17,21 @@
                                   <th scope="col">Categor&iacute;a</th>
                                   <th scope="col">Marca</th>
                                   <th scope="col">Modelo</th>
-                                  <th scope="col">Descripci&oacute;n</th>
+
                                   <th scope="col">Seleccionar</th>
                                 </tr>
                               </thead>
                               <tbody>
                                 <tr *ngFor="let catalogo of Catalogos | filter:term; let i = index;">
-                                 
-                                  <td  scope="row">{{catalogo.codCatalogo}}</td>
-                                  <td>{{catalogo.categoria}}</td>
+
+                                  <td  scope="row">{{catalogo.codCtgoComponente}}</td>
+                                  <td>{{catalogo.catalogo}}</td>
                                    <td>{{catalogo.marca}}</td>
                                    <td>{{catalogo.modelo}}</td>
-                                   <td>{{catalogo.descripcion}}</td>
+
                                   <td>  <input type="checkbox" class="btn btn-primary" [(ngModel)]="catalogo.checked" (change)="changeSelection()"></td>
                                 </tr>
-                                
+
                               </tbody>
                             </table>
                                 <div class="form-group row">
@@ -41,7 +41,7 @@
                                         <input type="button" class="btn btn-primary" (click)="nombreCatalogo()" value="Seleccionar">
                                     </div>
                                 </div>
-                          
+
                         </div>
                     </div>
                     <!-- /form user info -->

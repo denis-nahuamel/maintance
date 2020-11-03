@@ -17,20 +17,20 @@ export class ListarEquiposComponent implements OnInit {
 
  Equipos: any = [];
   ngOnInit(): void {
-    
+
     this.cargarEquipos();
 
   }
 
   cargarEquipos() {
-  	
+
     return this.equipoService.getEquipos().subscribe((data: {}) => {
-    	
+
       this.Equipos = data;
     })
   }
    borrarEquipo(equipo:EquipoInterface) {
-    
+
     return this.equipoService.borrarEquipo(equipo.codEquipo).subscribe(res => {
          this.Equipos = this.Equipos.filter(item => item.codEquipo !== equipo.codEquipo);
          console.log('Post deleted successfully!');
@@ -38,10 +38,10 @@ export class ListarEquiposComponent implements OnInit {
   }
   equipoDetalles(equipo:EquipoInterface){
     console.log("dd");
-      this.router.navigate(['equipo/editar/'+equipo.codEquipo]);  
+      this.router.navigate(['equipo/editar/'+equipo.codEquipo]);  //agregar equipo
   }
   agregarEquipo(){
-    
-      this.router.navigate(['equipo/insertar']);  
+
+      this.router.navigate(['equipo/insertar']);
   }
 }

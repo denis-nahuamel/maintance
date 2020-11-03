@@ -10,12 +10,13 @@ import { map } from 'rxjs/operators';
   providedIn: 'root'
 })
 export class CatalogoService {
-apiURL = 'https://projectlab6.herokuapp.com/catalogo';
+apiURL = 'https://projectlab6.herokuapp.com/catalogoequipo';
+apiURLComponente = 'https://projectlab6.herokuapp.com/catalogocomponente';
  httpOptions = {
     headers: new HttpHeaders({
       'Content-Type': 'application/json'
     })
-  }  
+  }
   public nombreRepuesto="";
    public Catalogos: Observable<CatalogoInterface[]>;
     constructor(private http: HttpClient) { }
@@ -25,18 +26,25 @@ apiURL = 'https://projectlab6.herokuapp.com/catalogo';
 
  changeMessage(message: string) {
     this.messageSource.next(message)
-  } 
+  }
   //=============obtener los datos de catalogo==============
 getCatalogos(): Observable<any>  {
-	
+
     return this.http.get(this.apiURL).pipe(
+      map(this.extractData),
+      catchError(this.handleError)
+    );
+  }
+  getCatalogoComponente(): Observable<any>  {
+
+    return this.http.get(this.apiURLComponente).pipe(
       map(this.extractData),
       catchError(this.handleError)
     );
   }
 //======================Obtener un solo catalogo===============================
  getCatalogo(id:string): Observable<any>  {
-  
+
     return this.http.get(this.apiURL+'/editar/' + id).pipe(
       map(this.extractData),
       catchError(this.handleError)
@@ -59,7 +67,7 @@ getCatalogos(): Observable<any>  {
   }
 //===================borrar catalogo=====================
   borrarCatalogo(id) {
-  
+
     return this.http.delete<CatalogoInterface>(this.apiURL+'/eliminar/'+id).pipe(
       catchError(this.errorHandler)
     )

@@ -25,7 +25,7 @@ public codComponente:string;
     private componenteService: ComponenteService,
      private equipoService: EquiposService,
    private router: Router) {
-    this.activo = [{ value: 1, text: "Operativo", selected: "checked" }, { value: 2, text: "Inoperativo", selected: "" }];
+    this.activo = [{ value: 1, text: "Operativo", selected: "checked" }, { value: 2, text: "Malogrado", selected: "" }];
     this.componenteService.currentMessage.subscribe(message => this.nombreCatalogo = message);
      this.componenteService.codActualEquipo.subscribe(message => this.nombreEquipo = message)
 
@@ -36,20 +36,21 @@ public codComponente:string;
     if(this.codComponente){
       this.titulo="Modificar Componente";
       this.componenteService.getComponente(this.codComponente).subscribe(componente => {
+        console.log(componente);
          this.nombreCatalogo=componente.codCtgoComponente;
          this.nombreEquipo=componente.codEquipo;
-         if (componente.estado=="OPERATIVO") {
+         if (componente.estado=="MALOGRADO") {
 
-           this.valorEstado=1;
+           this.valorEstado=2;
          }
          else
          {
-             this.valorEstado=2;
+             this.valorEstado=1;
          }
           this.postComponente.setValue({
             codComponente:componente.codComponente,
              estado: this.valorEstado,
-             ubicacion:componente.ubicacion,
+             equipo:componente.equipo,
              codEquipo:componente.codEquipo,
              codCtgoComponente:componente.codCtgoComponente
           });
@@ -61,7 +62,7 @@ public codComponente:string;
   }
    public postComponente = new FormGroup({
     codComponente: new FormControl(),
-    ubicacion: new FormControl(),
+    equipo: new FormControl(),
     codEquipo: new FormControl(),
     codCtgoComponente: new FormControl(),
     estado: new FormControl(''),
@@ -74,7 +75,7 @@ public codComponente:string;
      data.estado="OPERATIVO"
    }
    else{
-     data.estado="INOPERATIVO"
+     data.estado="MALOGRADO"
    }
       if(this.codComponente){//actualizar componente
 
@@ -97,8 +98,9 @@ public codComponente:string;
   }
   getCatalogo(){
        this.router.navigate(['equipo/seleccionar-catalogo/2']);  //2 para seleccionar catalogo para componente
+                                                                //seleccionar-equipo
   }
 getEquipo(){
        this.router.navigate(['equipo/seleccionar-equipo/1']); //opcion de componente
-  }
+  }                                                             //select equipo
 }

@@ -20,9 +20,9 @@ selectedItemsList = [];
    public idRuta=null;//tiene el id del componente que lo esta llamando
   public idEquipo=null;
     constructor(private activatedRoute: ActivatedRoute
-      ,private catalogoService: CatalogoService,private formBuilder: FormBuilder, 
+      ,private catalogoService: CatalogoService,private formBuilder: FormBuilder,
   			private router: Router,private componenteService: ComponenteService) {
-  
+
     }
 
   ngOnInit(): void {
@@ -34,24 +34,34 @@ selectedItemsList = [];
   }
 
 loadCatalogos() {
-  	
-    return this.catalogoService.getCatalogos().subscribe((data: {}) => {
-    
+  	 if(this.idRuta==1)
+      {
+         return this.catalogoService.getCatalogos().subscribe((data: {}) => {
+
       this.Catalogos = data;
     })
+      }
+      if(this.idRuta==2)
+      {
+         return this.catalogoService.getCatalogoComponente().subscribe((data: {}) => {
+            console.log("equipo",data);
+            this.Catalogos = data;
+          })
+      }
+
   }
   nombreCatalogo(){
-  	
-  	 
+
+
       if(this.idRuta==1)
       {
-  	   this.router.navigate(['equipo/insertar']);  
-        this.catalogoService.changeMessage(this.selectedItemsList[0].codCatalogo);
+  	   this.router.navigate(['equipo/insertar']);
+        this.catalogoService.changeMessage(this.selectedItemsList[0].codCtgoEquipo);
       }
       if(this.idRuta==2){
-        console.log("entra aqui");
-        this.componenteService.changeMessage(this.selectedItemsList[0].codCatalogo);
-         this.router.navigate(['componente/insertar']);  
+
+        this.componenteService.changeMessage(this.selectedItemsList[0].codCtgoComponente);
+         this.router.navigate(['componente/insertar']);
       }
   }
    changeSelection() {
@@ -72,6 +82,6 @@ loadCatalogos() {
         this.checkedIDs.push(value.id);
       }
     });
-    
+
   }
 }

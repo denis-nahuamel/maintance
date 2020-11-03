@@ -8,45 +8,45 @@
                         </div>
                        <div class="card-body">
                             <form class="form" role="form" [formGroup]="postComponente" (ngSubmit)="agregarComponente(postComponente.value)">
-                               
-                               
+
+
                                 <div class="form-group row">
                                     <label class="col-lg-3 col-form-label form-control-label">Ubicaci&oacute;n</label>
                                     <div class="col-lg-9">
-                                        <input class="form-control" type="text" formControlName="ubicacion" >
+                                        <input class="form-control" type="text" formControlName="equipo" readonly="true">
                                     </div>
                                 </div>
-                                
+
                                 <div class="form-group row">
                                     <label class="col-lg-3 col-form-label form-control-label" >Estado</label>
                                     <label class="col-lg-3 col-form-label form-control-label" *ngFor="let g of activo">
                                         <div class="col-lg-9">
-                                        <input type="radio" [value]="g.value" name="estado" formControlName="estado" 
+                                        <input type="radio" [value]="g.value" name="estado" formControlName="estado"
 
                                         [checked]="postComponente.get('estado').value == g.value">{{g.text}}
                                     </div>
                                     </label>
 
                                </div>
-                            
-                               <!--Ver catalogo-->    
+
+                               <!--Ver catalogo-->
                                 <div class="form-group row">
                                     <label class="col-lg-3 col-form-label form-control-label">Cat&aacute;logo</label>
                                     <div class="col-lg-7">
-                                         <input class="form-control" type="text" value="{{nombreCatalogo}}" formControlName="codCatalogo" >  
+                                         <input class="form-control" type="text" value="{{nombreCatalogo}}" formControlName="codCtgoComponente" >
                                     </div>
                                     <div class="col-lg-2">
-                                         
+
                                         <input type="button" (click)="getCatalogo()" class="btn btn-primary" value="Buscar">
                                     </div>
                                 </div>
                                <div class="form-group row">
                                     <label class="col-lg-3 col-form-label form-control-label">Equipo</label>
                                     <div class="col-lg-7">
-                                         <input class="form-control" type="text" value="{{nombreEquipo}}" formControlName="codEquipo" >  
+                                         <input class="form-control" type="text" value="{{nombreEquipo}}" formControlName="codEquipo" >
                                     </div>
                                     <div class="col-lg-2">
-                                         
+
                                         <input type="button" (click)="getEquipo()" class="btn btn-primary" value="Buscar">
                                     </div>
                                 </div>
