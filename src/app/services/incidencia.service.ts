@@ -16,6 +16,7 @@ import { map } from "rxjs/operators";
 export class IncidenciaService {
   apiURL = "https://projectlab6.herokuapp.com/incidente";
   apiInforme = "https://projectlab6.herokuapp.com/informe/";
+  apiTareas = "https://projectlab6.herokuapp.com/tarea/";
   apiSolucionSoftware = "https://projectlab6.herokuapp.com/solucionsoftware";
 
   httpOptions = {
@@ -41,7 +42,12 @@ export class IncidenciaService {
       catchError(this.handleError)
     ));
   }
-
+ getTareas(): Observable<any> {
+    return (this.http.get(this.apiTareas).pipe(
+      map(this.extractData),
+      catchError(this.handleError)
+    ));
+  }
 
   //==============obtener una unica incidencia==========================
   getIncidencia(id: string): Observable<any> {

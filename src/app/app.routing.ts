@@ -41,6 +41,8 @@ import { ListarUsuariosComponent } from "./views/usuario/listar-usuarios/listar-
 import { AgregarTecnicoComponent } from "./views/tecnico/agregar-tecnico/agregar-tecnico.component";
 import { ListarTecnicosComponent } from "./views/tecnico/listar-tecnicos/listar-tecnicos.component";
 
+import { ListarReportesComponent } from "./views/listar-reportes/listar-reportes.component";
+
 export const routes: Routes = [
   {
     path: "",
@@ -151,6 +153,16 @@ export const routes: Routes = [
           { path: "insertar/:id", component: AgregarComponenteComponent },
 
           { path: "insertar", component: AgregarComponenteComponent }
+        ]
+      },
+       {
+        path: "listar-reportes",
+        children: [
+          {
+            path: "",
+            component: ListarReportesComponent
+          },
+
         ]
       },
       {

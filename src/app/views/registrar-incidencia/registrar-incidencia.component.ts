@@ -1,6 +1,8 @@
 import { Component, OnInit } from "@angular/core";
 import { IncidenteInterface } from "../../models/incidente";
 import { IncidenciaService } from "../../services/incidencia.service";
+import { DocenteInterface } from "../../models/docente";
+import { DocentesService } from "../../services/docentes.service";
 import { ActivatedRoute, Router } from "@angular/router";
 import { FormGroup, FormControl, Validators, NgForm } from "@angular/forms";
 @Component({
@@ -12,10 +14,12 @@ export class RegistrarIncidenciaComponent implements OnInit {
   public nombreEquipo = "";
   public titulo: string;
   public codIncidente: string;
+  Docentes:any;
   constructor(
     private activatedRoute: ActivatedRoute,
     private incidenciaService: IncidenciaService,
-    private router: Router
+    private router: Router,
+     private docenteService: DocentesService
   ) {
     this.incidenciaService.codActualEquipo.subscribe(
       message => (this.nombreEquipo = message)
@@ -44,6 +48,9 @@ export class RegistrarIncidenciaComponent implements OnInit {
     } else {
       this.titulo = "Agregar Incidente";
     }
+
+
+
   }
   public postIncidencia = new FormGroup({
     fecha: new FormControl("", Validators.required),

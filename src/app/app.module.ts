@@ -68,6 +68,7 @@ import { ListarTecnicosComponent } from "./views/tecnico/listar-tecnicos/listar-
 import { ListarIncidentesComponent } from "./views/docente/listar-incidentes/listar-incidentes.component";
 import { EquipoComponentesComponent } from './views/equipo-mantenimiento/equipo-componentes/equipo-componentes.component';
 import { ListarDocentesComponent } from './views/docente/listar-docentes/listar-docentes.component';
+import { ListarReportesComponent } from './views/listar-reportes/listar-reportes.component';
 //import { TecnicoService } from './services/tecnico.service';
 //import { EquipoComponent } from './services/equipo/equipo.component';
 
@@ -123,7 +124,8 @@ import { ListarDocentesComponent } from './views/docente/listar-docentes/listar-
     ListarTecnicosComponent,
     ListarIncidentesComponent,
     EquipoComponentesComponent,
-    ListarDocentesComponent
+    ListarDocentesComponent,
+    ListarReportesComponent
   ],
   providers: [
     {

@@ -1,0 +1,70 @@
+<div class="row">
+    	          <div class="form-group">
+									<label class="col-lg-12 col-form-label form-control-label">Fecha Inicio</label>
+									<div class="col-lg-12">
+										<input class="form-control"   type="date"  placeholder="date" [(ngModel)]="fechaInicio"  >
+                  </div>
+								</div>
+                <div class="form-group">
+									<label class="col-lg-12 col-form-label form-control-label">Fecha Fin</label>
+                  <div class="col-lg-12">
+                      <input class="form-control"  type="date"  placeholder="date"  [(ngModel)]="fechaFin" >
+                  </div>
+								</div>
+                   <div class="col-md-3">
+                   <label class="col-lg-12 col-form-label form-control-label">Codigo Docente</label>
+                <select id="select1" name="select1" [(ngModel)]="opcionSeleccionado" class="browser-default custom-select" (change)="capturar()">
+                    <option value="0">Selecciona una opción</option>
+                    <option *ngFor="let dato of Docentes">
+                      {{dato.codDocente}}
+                    </option>
+                </select>
+
+              </div>
+              <div class="form-group">
+               <label class="col-lg-12 col-form-label form-control-label">Listar Resultados</label>
+                <div class="col-lg-12">
+                    <button type="button" class="btn btn-success" style="float:right" (click)="listarTareas()">Listar</button>
+                </div>
+              </div>
+      </div>
+    <div class="container py-3">
+      <div class="row">
+        <div class="mx-auto col-sm-12">
+        <div class="card">
+          <div class="card-header">
+            <h4 class="mb-0">Listar Incidentes</h4>
+
+          </div>
+          <div class="card-body">
+          <div>
+
+          </div>
+            <table class="table">
+              <thead class="thead-dark">
+                <tr>
+                  <th scope="col">Codigo</th>
+                  <th scope="col">Fecha</th>
+                  <th scope="col">Nombre</th>
+                  <th scope="col">Falla</th>
+                  <th scope="col">Tecnico</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr *ngFor="let incidente of Incidencias; let i = index;">
+                  <th scope="row">{{incidente.codIncidente}}</th>
+                  <td>{{incidente.fecha}}</td>
+                  <td>{{incidente.equipo}}</td>
+                  <td>{{incidente.descripcion}}</td>
+                </tr>
+              </tbody>
+            </table>
+
+
+				</div>
+			</div>
+			<!-- /form user info -->
+		</div>
+	</div>
+</div>
+
